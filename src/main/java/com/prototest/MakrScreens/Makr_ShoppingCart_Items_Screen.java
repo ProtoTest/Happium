@@ -26,7 +26,18 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ZipCode = new appElement("ZipCode", By.xpath("//window[1]/textfield[2]"));
     appElement Checkout = new appElement("CheckoutButton", By.name("CHECKOUT"));
 
+    //This is the password confirmation screen field that paypopup
+    appElement Password = new appElement("Password", By.xpath("//window[1]/secure[7]"));
+    appElement ConfirmButton = new appElement("ConfirmButton", By.xpath("//window[1]/button[28]"));
 
+    //Going to use these to set the initial values
+    //TODO need to get these values and convert from strings
+    private float SubTotal;
+    private float Tax;
+    private float PromoDiscount;
+    private float Total;
+
+    //TODO need to also check to make sure there are items on this screen
 
     List<appElement> ScreenElements;
 
@@ -61,13 +72,17 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         return new Makr_ShoppingCart_Items_Screen();
     }
 
-    public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(){
+    public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(String pass){
         Checkout.tap();
+        if(ConfirmButton.verifyPresent()){
+            Password.SendKeys(pass);
+            ConfirmButton.tap();
+        }
         return new Makr_ShoppingCart_ConfirmAddress_Screen();
     }
 
     public void GetSubTotal(){
-        System.out.println("******====="+ SubTotalAmount.GetAttribute("value"));
+        System.out.println("******====="+ String.valueOf(SubTotalAmount.isDisplayed()));
     }
 
 

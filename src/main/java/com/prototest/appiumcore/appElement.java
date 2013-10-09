@@ -48,6 +48,11 @@ public class appElement {
         return element.getAttribute(attr);
     }
 
+    public boolean isDisplayed(){
+        setAppElement();
+        return element.isDisplayed();
+    }
+
     public void tap(){
         setAppElement();
         element.click();
