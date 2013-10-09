@@ -20,12 +20,14 @@ public class appElement {
     private WebDriver driver;
     private String name;
     private WebElement element;
+    private appiumTestLog.logger logFile;
 
 
     public appElement(String n, By b){
         this.name = n;
         this.by = b;
         this.driver = appiumTestBase.getDriver();
+        logFile = appiumScreenBase.logFile;
 
         //this.element = driver.findElement(b);
     }
@@ -51,6 +53,7 @@ public class appElement {
     public void tap(){
         setAppElement();
         element.click();
+        logFile.AddLog("Tapped " + name + " with Locator: " + by.toString());
     }
 
     public boolean verifyPresent(){
