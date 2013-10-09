@@ -68,5 +68,10 @@ public class Makr_ShoppingCart_ShippingMethod_Screen extends appiumScreenBase {
         return this;
     }
 
+    public Makr_ShoppingCart_PaymentInfo_Screen ClickContinue(){
+        Continue.tap();
+        return new Makr_ShoppingCart_PaymentInfo_Screen();
+    }
+
 
 }
