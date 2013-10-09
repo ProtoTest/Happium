@@ -61,6 +61,11 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         return new Makr_ShoppingCart_Items_Screen();
     }
 
+    public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(){
+        Checkout.tap();
+        return new Makr_ShoppingCart_ConfirmAddress_Screen();
+    }
+
 
 
 
