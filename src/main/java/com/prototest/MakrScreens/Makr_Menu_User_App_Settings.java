@@ -32,5 +32,17 @@ public class Makr_Menu_User_App_Settings extends appiumScreenBase {
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(AppSettings);
+        ScreenElements.add(Smartguidesswitch);
+        ScreenElements.add(PushNotificationsswitch);
 }
+    public void TapAppSetting() {
+        AppSettings.tap();
+    }
+    public void TapSmartguidesswitch() {
+        Smartguidesswitch.tap();
+    }
+    public void TapPushNotificationsswtich() {
+        PushNotificationsswitch.tap();
+    }
+
 }
