@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import java.util.List;
 import java.util.Random;
 
-import static com.prototest.appiumcore.appiumTestLog.*;
-
 /**
  * Created with IntelliJ IDEA.
  * User: sethurban
@@ -17,7 +15,6 @@ import static com.prototest.appiumcore.appiumTestLog.*;
 public class appiumScreenBase {
     protected appElement AppMainWindow = new appElement("AppMainWindow", By.xpath("//window[1]"));
 
-    protected static logger logFile = new logger();
     protected appiumScreenHistory.ScreenHistory ScreenHS = new appiumScreenHistory.ScreenHistory();
     appElement SurveyHeader = new appElement("SurveyHeader", By.xpath("//window[1]/navigationBar[1]/text[1]")); //This should be present on both surveys
 
@@ -62,11 +59,9 @@ public class appiumScreenBase {
             for(int i = 0; i < elements.size(); i++){
                 if(elements.get(i).verifyPresent()){
                     System.out.println(elements.get(i).GetElementName() + " is present");
-                    logFile.AddLog(elements.get(i).GetElementName() + " is present");
                 }
                 else{
                     System.out.println(elements.get(i).GetElementName() + " is NOT present");
-                    logFile.AddLog(elements.get(i).GetElementName() + " is NOT present");
                 }
 
             }
@@ -74,6 +69,7 @@ public class appiumScreenBase {
     }
 
     private void Complete_SurveyOne(){
+
         OkButton.tap();
         sendResponse.tap();
     }
@@ -85,9 +81,5 @@ public class appiumScreenBase {
 
     private void Cancel_SurveyOne(){
         SurveyCancel.tap();
-    }
-
-    public logger getLog(){
-        return logFile;
     }
 }

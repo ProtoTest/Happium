@@ -10,8 +10,6 @@ package com.prototest.appiumcore;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.Result;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -24,17 +22,13 @@ import java.net.URL;
 public class appiumTestBase {
     private static  WebDriver driver;
     private appElement window;
-    //protected appiumScreenBase base;
-    protected appiumTestLog.logger logFile;
-    //public appiumTestLog.logger logFile;
+    private appiumTestLog.logger logFile;
 
     @Before
     public void setUp() throws Exception {
         System.out.println("Running Setup");
-        //logFile = new appiumTestLog.logger();
+        logFile = new appiumTestLog.logger();
         launchBrowser();
-        //base = new appiumScreenBase();
-        logFile = appiumScreenBase.logFile;
     }
 
     private void launchBrowser() throws Exception{
@@ -46,7 +40,7 @@ public class appiumTestBase {
 
         //capabilities.setCapability("app", app.getAbsolutePath());
 
-        driver = new RemoteWebDriver(new URL("http://192.168.1.100:4723/wd/hub"), capabilities);
+        driver = new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
         window = new appElement("Main_Window", By.xpath("//window[1]"));
     }
 
@@ -54,20 +48,15 @@ public class appiumTestBase {
         return driver;
     }
 
-    public void addTestEntry(String result){
-        logFile.AddLog(result + this.getClass().getSimpleName());
-    }
+
+
 
     @After
     public void TearDown(){
-        //driver.close();
-        driver.quit();
-        System.out.println("**** Tear Down Method ****");
-        logFile.printResults();
+        //get here bitch
+        System.out.println("*****************************************************");
+
     }
-
-
-
 
 
 
