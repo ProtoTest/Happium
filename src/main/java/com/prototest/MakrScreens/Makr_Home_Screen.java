@@ -80,6 +80,11 @@ public class Makr_Home_Screen extends Makr_MenuBar_HeaderScreen {
         return new Makr_Blog_Screen();
     }
 
+    public Makr_ShoppingCart_Items_Screen ClickShoppingCart(){
+        ShoppingCartButton.tap();
+        return new Makr_ShoppingCart_Items_Screen();
+    }
+
 
 
 }

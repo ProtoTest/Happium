@@ -16,7 +16,7 @@ import java.util.List;
 public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ScreenTitle = new appElement("ScreenTitle", By.xpath("//window[1]/text[2]"));
     appElement Items = new appElement("Items", By.xpath("//window[1]/text[3]"));
-    appElement SubTotalAmount = new appElement("SubTotalAmount", By.xpath("//window[1]/text[6]"));
+    appElement SubTotalAmount = new appElement("SubTotalAmount", By.xpath("//window[1]/text[8]"));
     appElement TaxAmount = new appElement("TaxAmount", By.xpath("//window[1]/text[8]"));
     appElement ShippingAmount = new appElement("ShippingAmount", By.xpath("//window[1]/text[10]"));
     appElement PromoCodeAmount = new appElement("PromoAmount", By.xpath("//window[1]/text[12]"));
@@ -64,6 +64,10 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(){
         Checkout.tap();
         return new Makr_ShoppingCart_ConfirmAddress_Screen();
+    }
+
+    public void GetSubTotal(){
+        System.out.println("******====="+ SubTotalAmount.GetAttribute("value"));
     }
 
 

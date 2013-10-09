@@ -18,14 +18,14 @@ import java.util.List;
 
 public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
 
-    appElement MenuButton = new appElement("Menu", By.name("wmbHomeButton normal"));
+    appElement MenuButton = new appElement("Menu", By.xpath("//window[1]/button[1]"));
     appElement WelcomeText = new appElement("WelcomeText", By.xpath("//window[1]/text[1]")); //hopefully there's a way to get this value
-    appElement HomeButton = new appElement("HomeButton", By.name("wmbHome2Button normal"));
+    appElement HomeButton = new appElement("HomeButton", By.xpath("//window[1]/button[1]"));
     appElement ProjectsButton = new appElement("Project Archive", By.xpath("//window[1]/button[3]"));
-    appElement BlogButton = new appElement("Blog", By.name("wmbBlogButton normal"));
-    appElement ShoppingCartButton = new appElement("ShoppingCart_Button", By.name("wmbCartButton normal"));
-    appElement BetaFeedBack = new appElement("BetaFeedBack", By.name("wmbBetafeedbackButton normal"));
-    appElement PlusButton = new appElement("PlusButton", By.name("wmbPlusButton normal"));
+    appElement BlogButton = new appElement("Blog", By.xpath("//window[1]/button[4]"));
+    appElement ShoppingCartButton = new appElement("ShoppingCart_Button", By.xpath("//window[1]/button[5]"));
+    //appElement BetaFeedBack = new appElement("BetaFeedBack", By.name("wmbBetafeedbackButton normal")); //This doesn't exist anymore
+    appElement PlusButton = new appElement("PlusButton", By.xpath("//window[1]/button[6]"));
 
     List<appElement> MenuBarElements;
 
@@ -42,7 +42,7 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
         MenuBarElements.add(ProjectsButton);
         MenuBarElements.add(BlogButton);
         MenuBarElements.add(ShoppingCartButton);
-        MenuBarElements.add(BetaFeedBack);
+        //MenuBarElements.add(BetaFeedBack);
         MenuBarElements.add(PlusButton);
     }
 
