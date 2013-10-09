@@ -17,6 +17,10 @@ import java.util.List;
  * Time: 10:20 AM
  * This is the screen that is displayed when the user clicks the beta feedback button
  */
+
+/*
+THIS SCREEN WAS REMOVED
+ */
 public class Makr_BetaFeedback_Screen extends appiumScreenBase {
     appElement CancelButton = new appElement("Cancel Button", By.name("Cancel"));
     appElement SendButton = new appElement("SendButton", By.name("Send"));

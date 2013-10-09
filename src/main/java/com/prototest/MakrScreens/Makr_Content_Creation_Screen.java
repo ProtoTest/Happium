@@ -15,6 +15,7 @@ import java.util.List;
  * This screen is used to create some content
  */
 public class Makr_Content_Creation_Screen extends appiumScreenBase {
+    //TODO finish the sub-menus for art and text
     //This is actually on the screen before this screen -- this is the button to get to the content screen
     appElement SelectTemplate = new appElement("SelectTemplate", By.xpath("//window[1]/button[9]"));
 

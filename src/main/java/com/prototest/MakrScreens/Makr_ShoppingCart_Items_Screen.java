@@ -11,7 +11,7 @@ import java.util.List;
  * User: Seth
  * Date: 9/29/13
  * Time: 1:57 PM
- * The screen used to checkout
+ * The screen used to checkout when ordering prints only
  */
 public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ScreenTitle = new appElement("ScreenTitle", By.xpath("//window[1]/text[2]"));

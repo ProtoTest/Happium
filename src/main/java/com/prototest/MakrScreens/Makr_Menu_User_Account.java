@@ -30,7 +30,6 @@ public class Makr_Menu_User_Account extends appiumScreenBase {
 
     }
 
-
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(Signed_in_as);
