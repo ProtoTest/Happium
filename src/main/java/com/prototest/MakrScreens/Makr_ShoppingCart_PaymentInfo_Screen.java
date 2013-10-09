@@ -15,4 +15,10 @@ import java.util.List;
  */
 public class Makr_ShoppingCart_PaymentInfo_Screen {
     //TODO finish this screen!
+    //these are different on each sub-screen --argh!
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath(""));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath(""));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath(""));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath(""));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath(""));
 }

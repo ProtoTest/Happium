@@ -39,6 +39,13 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
     //Not sure if I can tap on this thing or not - this will not be displayed if the user taps the new address button
     appElement FirstExistingAddress = new appElement("FirstExistingAddress", By.xpath("//window[1]/UIACollectionView[1]/UIACollectionCell[1]/text[3]"));
 
+    //these are different on each sub-screen --argh!
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath(""));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath(""));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath(""));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath(""));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath(""));
+
     List<appElement> ScreenElements;
     private Boolean addressEntered = false;
 

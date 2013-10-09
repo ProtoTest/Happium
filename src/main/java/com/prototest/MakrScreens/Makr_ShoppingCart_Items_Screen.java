@@ -16,11 +16,13 @@ import java.util.List;
 public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ScreenTitle = new appElement("ScreenTitle", By.xpath("//window[1]/text[2]"));
     appElement Items = new appElement("Items", By.xpath("//window[1]/text[3]"));
-    appElement SubTotalAmount = new appElement("SubTotalAmount", By.xpath("//window[1]/text[8]"));
-    appElement TaxAmount = new appElement("TaxAmount", By.xpath("//window[1]/text[8]"));
-    appElement ShippingAmount = new appElement("ShippingAmount", By.xpath("//window[1]/text[10]"));
-    appElement PromoCodeAmount = new appElement("PromoAmount", By.xpath("//window[1]/text[12]"));
-    appElement GrandTotalAmount = new appElement("GrandTotalAmount", By.xpath("//window[1]/text[14]"));
+
+    //these are different on each sub-screen --argh!
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath(""));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath(""));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath(""));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath(""));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath(""));
 
     appElement PromoCode = new appElement("PromoCode", By.xpath("//window[1]/textfield[1]"));
     appElement ZipCode = new appElement("ZipCode", By.xpath("//window[1]/textfield[2]"));
@@ -32,10 +34,10 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
 
     //Going to use these to set the initial values
     //TODO need to get these values and convert from strings
-    private float SubTotal;
-    private float Tax;
-    private float PromoDiscount;
-    private float Total;
+    private float SubTotalAmount;
+    private float TaxAmount;
+    private float PromoDiscountAmount;
+    private float TotalAmount;
 
     //TODO need to also check to make sure there are items on this screen
 
@@ -50,11 +52,11 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(ScreenTitle);
         ScreenElements.add(Items);
-        ScreenElements.add(SubTotalAmount);
-        ScreenElements.add(TaxAmount);
-        ScreenElements.add(ShippingAmount);
-        ScreenElements.add(PromoCodeAmount);
-        ScreenElements.add(GrandTotalAmount);
+        ScreenElements.add(SubTotalAmount_Field);
+        ScreenElements.add(TaxAmount_Field);
+        ScreenElements.add(ShippingAmount_Field);
+        ScreenElements.add(PromoDiscount_Field);
+        ScreenElements.add(TotalAmount_Field);
         ScreenElements.add(PromoCode);
         ScreenElements.add(ZipCode);
         ScreenElements.add(Checkout);
@@ -74,7 +76,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
 
     public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(String pass){
         Checkout.tap();
-        if(ConfirmButton.verifyPresent()){
+        if(ConfirmButton.isDisplayed()){
             Password.SendKeys(pass);
             ConfirmButton.tap();
         }
@@ -82,7 +84,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     }
 
     public void GetSubTotal(){
-        System.out.println("******====="+ String.valueOf(SubTotalAmount.isDisplayed()));
+        System.out.println("******====="+ String.valueOf(SubTotalAmount_Field.isDisplayed()));
     }
 
 
