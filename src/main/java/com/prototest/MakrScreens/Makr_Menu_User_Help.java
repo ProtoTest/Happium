@@ -31,6 +31,18 @@ public class Makr_Menu_User_Help extends appiumScreenBase {
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(Help);
+        ScreenElements.add(FAQs);
+        ScreenElements.add(ContactUs);
 
     }
+    public void TapHelp() {
+        Help.tap();
+    }
+    public void TapFAQs() {
+        FAQs.tap();
+    }
+    public void TapContactUs() {
+        ContactUs.tap();
+    }
+
 }
