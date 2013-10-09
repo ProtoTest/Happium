@@ -33,7 +33,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ConfirmButton = new appElement("ConfirmButton", By.xpath("//window[1]/button[28]"));
 
     //Going to use these to set the initial values
-    //TODO need to get these values and convert from strings
+    //TODO need to get these values and convert from strings - might add this to a new base
     private float SubTotalAmount;
     private float TaxAmount;
     private float PromoDiscountAmount;
@@ -52,11 +52,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(ScreenTitle);
         ScreenElements.add(Items);
-        ScreenElements.add(SubTotalAmount_Field);
-        ScreenElements.add(TaxAmount_Field);
-        ScreenElements.add(ShippingAmount_Field);
-        ScreenElements.add(PromoDiscount_Field);
-        ScreenElements.add(TotalAmount_Field);
+
         ScreenElements.add(PromoCode);
         ScreenElements.add(ZipCode);
         ScreenElements.add(Checkout);
