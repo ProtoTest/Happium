@@ -11,10 +11,10 @@ import java.util.List;
  * User: ChrisHancock
  * Date: 10/2/13
  * Time: 1:41 PM
- *Account Maint. screen
+ *Makr_Menu_User_Account Maint. screen
  */
 public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
-       //Account
+       //Makr_Menu_User_Account
        appElement Signed_in_as = new appElement("Signed_in_as",By.xpath("//window[1]/text[3]"));
        appElement OrderHistory = new appElement("OrderHistory",By.xpath("//window[1]/button[13]"));
        appElement MyPromoCodes = new appElement("MyPromoCodes",By.xpath("//window[1]/button[14]"));
@@ -22,8 +22,8 @@ public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
        appElement LogOut = new appElement("LogOut",By.xpath("//window[1]/button[16]"));
        //App Settings
        appElement AppSettings = new appElement("AppSettings",By.xpath("//window[1]/button[3]"));
-       //Help
-       appElement Help = new appElement("Help",By.xpath("//windown[1]/button[4]"));
+       //Makr_Menu_User_Help
+       appElement Help = new appElement("Makr_Menu_User_Help",By.xpath("//windown[1]/button[4]"));
        //Terms & Conditions
        appElement Terms = new appElement("Terms",By.xpath("//window[1]/button[5]"));
 

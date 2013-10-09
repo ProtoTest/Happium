@@ -17,13 +17,13 @@ import java.util.List;
 public class Makr_Menu_User_Screen extends appiumScreenBase {
     public appElement LoginButton = new appElement("LoginButton", By.name("Log In"));
     public appElement LogoutButton = new appElement("LogoutButton", By.name("LogoutButton"));
-    public appElement AccountSettings = new appElement("AccountSettings", By.name("Account"));
+    public appElement AccountSettings = new appElement("AccountSettings", By.name("Makr_Menu_User_Account"));
     //appElement AlignPrinter = new appElement("AlignPrinterButton", By.name("Align Printer")); --This seems to have been removed in 0.5.a.91
     //appElement ViewTutorial = new appElement("ViewTutorial", By.name("View Tutorial"));
     public appElement AppSettings = new appElement("AppSettings", By.name("App Settings"));
     //No Longer Present
     public appElement InviteFriends = new appElement("InviteFriends", By.name("Invite Friends"));
-    public appElement Help = new appElement("HelpClues", By.name("Help"));
+    public appElement Help = new appElement("HelpClues", By.name("Makr_Menu_User_Help"));
     public appElement TermsandConditions = new appElement("Terms", By.name("Terms & Conditions"));
     //appElement FAQpage = new appElement("FAQPage", By.name("FAQ page >"));
     //appElement ContactSupport = new appElement("ContactSupport", By.name("Contact Support"));
