@@ -11,18 +11,16 @@ import java.util.List;
  * User: ChrisHancock
  * Date: 10/2/13
  * Time: 1:41 PM
- *Account Maint. screen
+ *Makr_Menu_User_Account Maint. screen
  */
-public class App_Settings extends appiumScreenBase {
-    //App Settings
-    appElement AppSettings = new appElement("AppSettings",By.xpath("//window[1]/button[3]"));
-    appElement Smartguidesswitch = new appElement("Smartguidesswitch",By.xpath("//window[1]/switch[1]"));
-    appElement PushNotificationsswitch= new appElement("PushNotificationswitch",By.xpath("//window[1]/switch[2]"));
+public class Makr_Menu_User_Terms_Conditions extends appiumScreenBase {
+    //Terms & Conditions
+    appElement Terms = new appElement("Terms",By.xpath("//window[1]/button[5]"));
 
 
     List<appElement> ScreenElements;
 
-    public App_Settings(){
+    public Makr_Menu_User_Terms_Conditions(){
         InitList();
         VerifyContent(ScreenElements);
 
@@ -31,6 +29,7 @@ public class App_Settings extends appiumScreenBase {
 
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
-        ScreenElements.add(AppSettings);
+        ScreenElements.add(Terms);
+    }
 }
-}
+
