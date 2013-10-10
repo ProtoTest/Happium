@@ -18,6 +18,16 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
     appElement Blog = new appElement("Blog", By.name("BLOG"));
     appElement BlgSidebar = new appElement("blgOpenSidebar", By.name("blgMenuOpenSidebar"));
 
+    //Blog Sode bar
+    appElement AllPosts = new appElement("AllPosts", By.name("All Posts"));
+    appElement Business = new appElement("Buisness", By.name("Buisness"));
+    appElement Celebrations = new appElement("Celebrations", By.name("Celebrations"));
+    appElement Design = new appElement("Design", By.name("Design"));
+    appElement Holiday = new appElement("Holiday", By.name("Holiday"));
+    appElement MakrNews = new appElement("MakrNews", By.name("Makr News"));
+    appElement Uncategorized = new appElement("Uncategorized", By.name("Uncategorized"));
+    appElement Wedding = new appElement("Wedding", By.name("Wedding"));
+
     //These are the expected Blogs on page
 
     String BlogSelect = "//window1/UIACollectionView[1]/UIACollectionCell";
@@ -34,6 +44,14 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(Blog);
         ScreenElements.add(BlgSidebar);
+        ScreenElements.add(AllPosts);
+        ScreenElements.add(Business);
+        ScreenElements.add(Celebrations);
+        ScreenElements.add(Design);
+        ScreenElements.add(Holiday);
+        ScreenElements.add(MakrNews);
+        ScreenElements.add(Uncategorized);
+        ScreenElements.add(Wedding);
 
     }
 
@@ -44,4 +62,30 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
         SelectBlog.tap();
 
     }
+    public void BigSidebar() {
+        BlgSidebar.tap();
+
+    }
+    public void AllPosts() {
+        AllPosts.tap();
+    }
+    public void Buainess() {
+        Business.tap();
+    }
+    public void Celebrations() {
+        Celebrations.tap();
+    }
+    public void Design() {
+        Design.tap();
+    }
+    public void Holiday() {
+        Holiday.tap();
+    }
+    public void MakrNews() {
+        MakrNews.tap();
+    }
+    public void Wedding() {
+        Wedding.tap();
+    }
+
 }
