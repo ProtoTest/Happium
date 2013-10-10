@@ -26,11 +26,11 @@ public class Makr_ShoppingCart_ShippingMethod_Screen extends appiumScreenBase {
     appElement FedExStandard = new appElement("FedExStandard", By.xpath("//window[1]//tableview[1]/cell[4]/text[1]"));
 
     //these are different on each sub-screen --argh!
-    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath(""));
-    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath(""));
-    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath(""));
-    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath(""));
-    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath(""));
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("//window[1]/text[13]"));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath("/window[1]/text[15]"));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath("//window[1]/text[17]"));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[19]"));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[21]"));
 
     List<appElement> ScreenElements;
 

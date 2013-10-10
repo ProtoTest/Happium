@@ -18,11 +18,11 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement Items = new appElement("Items", By.xpath("//window[1]/text[3]"));
 
     //these are different on each sub-screen --argh!
-    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath(""));
-    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath(""));
-    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath(""));
-    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath(""));
-    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath(""));
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("//window[1]/text[8]"));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath("//window[1]/text[10]"));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath("//window[1]/text[12]"));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[14]"));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[16]"));
 
     appElement PromoCode = new appElement("PromoCode", By.xpath("//window[1]/textfield[1]"));
     appElement ZipCode = new appElement("ZipCode", By.xpath("//window[1]/textfield[2]"));
