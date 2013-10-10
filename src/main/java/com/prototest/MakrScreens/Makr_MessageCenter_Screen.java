@@ -13,6 +13,7 @@ import java.util.List;
  * Date: 9/12/13
  * Time: 11:50 AM
  * This screen is displayed from the Beta Feedback screen when the user chooses to view the message center.
+ * This screen may have been removed.
  */
 public class Makr_MessageCenter_Screen extends appiumScreenBase {
     appElement UserButton = new appElement("MC_UserButton", By.xpath("//window[1]/navigationBar[1]/button[1]"));
