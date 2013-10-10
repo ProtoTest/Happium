@@ -3,6 +3,7 @@ package com.prototest.MakrScreens;
 import com.prototest.appiumcore.appElement;
 import com.prototest.appiumcore.appiumTestBase;
 import org.openqa.selenium.By;
+import com.prototest.appiumcore.appiumScreenBase;
 
 import java.util.ArrayList;
 import java.util.List;
