@@ -16,7 +16,7 @@ import org.junit.Assert;
  * Screen used during ordering process to allow users to enter or confirm address
  * addresses already entered and saved should be presented to the users
  */
-public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
+public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_HeaderScreen {
     appElement BackButton = new appElement("ShoppingCart_Address_BackButton", By.xpath("//window[1]/button[7]"));
     appElement CancelOrderButton = new appElement("ShoppingCart_CancelOrder_Button", By.xpath("//window[1]/button[8]"));
     appElement NewAddress = new appElement("NewAddress", By.xpath("//window[1]/button[10]"));
@@ -51,11 +51,13 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
     List<appElement> ScreenElements;
     private Boolean addressEntered = false;
     private boolean addressSelected = false;
+    private Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
 
-    public Makr_ShoppingCart_ConfirmAddress_Screen(){
+
+    public Makr_ShoppingCart_ConfirmAddress_Screen(Makr_ShoppingCart_Base.ShoppingCalculator calc){
         InitList();
         VerifyContent(ScreenElements);
-
+        ShopCalc = calc;
     }
 
     private void InitList() {
@@ -123,9 +125,18 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
         else{
             Assert.fail("Tried to click on continue button without an address selected - Test Script Logic Error");
         }
-        return new Makr_ShoppingCart_ShippingMethod_Screen();
+        //Before leaving this screen we should check to make sure that none of the prices changed
+        VerifyPricesUnchanged();
+        return new Makr_ShoppingCart_ShippingMethod_Screen(ShopCalc);
     }
     //SubtotalAmount = //window[1]/text[11]
 
+    private void VerifyPricesUnchanged(){
+        Assert.assertEquals(ShopCalc.getSubTotal(), SubTotalAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.getShipping(), ShippingAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.getTax(), TaxAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.getPromo(), PromoDiscount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.ExpectedTotal(), TotalAmount_Field.GetAttribute("value"));
+    }
 
 }

@@ -33,6 +33,13 @@ public class Makr_ShoppingCart_Base {
         private Float TotalAmount;
         private List<Float> Prices;
 
+        //Shipping information used for billing
+        private String AddressLine1;
+        private String AddressLine2;
+        private String City;
+        private String State;
+        private String Zip;
+
         public ShoppingCalculator(){
             PriceStrings = new ArrayList<String>();
             Prices = new ArrayList<Float>();
@@ -56,8 +63,8 @@ public class Makr_ShoppingCart_Base {
 
         private void ConvertToFloat() {
             for(int i = 0; i < PriceStrings.size(); i++){
-                PriceStrings.get(i).replace("$", "");
-                Prices.add(Float.valueOf(PriceStrings.get(i)));
+                String temp = PriceStrings.get(i).replace("$", "");
+                Prices.add(Float.valueOf(temp));
             }
             //now we'll set all the Float objects to their expected value
             SubTotalAmount = Prices.get(0);
@@ -91,5 +98,23 @@ public class Makr_ShoppingCart_Base {
             String Price = "$" + String.valueOf(Expected);
             return Price;
         }
+
+        public String getSubTotal(){
+            String sub_str = "$"+ String.valueOf(SubTotalAmount);
+            return sub_str;
+        }
+        public String getShipping(){
+            String ship_str = "$"+ String.valueOf(ShippingAmount);
+            return ship_str;
+        }
+        public String getTax(){
+            String tax_str = "$"+ String.valueOf(TaxAmount);
+            return tax_str;
+        }
+        public String getPromo(){
+            String promo_str = "$"+ String.valueOf(PromoDiscountAmount);
+            return promo_str;
+        }
+
     }
 }

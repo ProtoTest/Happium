@@ -43,14 +43,15 @@ public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
     //invalid Credit card warning
     appElement ConfirmInvalidCC = new appElement("ConfirmInvalidCCButton", By.xpath("//window[3]/image[1]/button[1]"));
 
+    public static Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
     List<appElement> ScreenElements;
     private boolean EnteredPaymentInfo = false;
     private boolean EnteredBillingInfo = false;
 
-    public Makr_ShoppingCart_PaymentInfo_Screen(){
+    public Makr_ShoppingCart_PaymentInfo_Screen(Makr_ShoppingCart_Base.ShoppingCalculator shop){
         InitList();
         VerifyContent(ScreenElements);
-
+        ShopCalc = shop;
     }
 
     private void InitList() {

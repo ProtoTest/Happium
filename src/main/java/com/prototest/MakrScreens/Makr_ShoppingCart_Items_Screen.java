@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.Assert;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,6 +17,9 @@ import java.util.List;
 public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ScreenTitle = new appElement("ScreenTitle", By.xpath("//window[1]/text[2]"));
     appElement Items = new appElement("Items", By.xpath("//window[1]/text[3]"));
+    appElement EmptyButton = new appElement("BacktoHome", By.xpath("//window[1]/button[10]"));
+
+    appElement InvalidPromoCode = new appElement("InvalidPromoCode", By.xpath("//window[1]/text[25]"));
 
     //these are different on each sub-screen --argh!
     appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("//window[1]/text[8]"));
@@ -32,6 +36,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement Password = new appElement("Password", By.xpath("//window[1]/secure[7]"));
     appElement ConfirmButton = new appElement("ConfirmButton", By.xpath("//window[1]/button[28]"));
 
+    public static Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
 
 
     //TODO need to also check to make sure there are items on this screen
@@ -45,25 +50,48 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
 
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
-        ScreenElements.add(ScreenTitle);
-        ScreenElements.add(Items);
-
-        ScreenElements.add(PromoCode);
-        ScreenElements.add(ZipCode);
-        ScreenElements.add(Checkout);
+        if(EmptyButton.isDisplayed()){
+            ScreenElements.add(ScreenTitle);
+            ScreenElements.add(EmptyButton);
+        }
+        //This will be called if there is items in the cart
+        else{
+            ScreenElements.add(ScreenTitle);
+            ScreenElements.add(Items);
+            ScreenElements.add(PromoCode);
+            ScreenElements.add(ZipCode);
+            ScreenElements.add(Checkout);
+            ShopCalc = new Makr_ShoppingCart_Base.ShoppingCalculator();
+            ShopCalc.SetAmounts(SubTotalAmount_Field.GetAttribute("value"), ShippingAmount_Field.GetAttribute("value"), TaxAmount_Field.GetAttribute("value"),
+                    PromoDiscount_Field.GetAttribute("value"), TotalAmount_Field.GetAttribute("value"));
+        }
     }
 
     public Makr_ShoppingCart_Items_Screen addPromoCode(String pcode){
         //This is going to have to update the total to an expected value
-
         PromoCode.SendKeys(pcode);
-        return new Makr_ShoppingCart_Items_Screen();
+        if(InvalidPromoCode.isDisplayed()){
+            //TODO log invalid promo code applied
+        }
+        else{
+            ShopCalc.UpdatePromo(PromoDiscount_Field.GetAttribute("value"));
+            CheckPrices();
+        }
+        return this;
     }
 
     public Makr_ShoppingCart_Items_Screen addZipCode(String zip){
         //This is going to have to update the total to an expected value
         ZipCode.SendKeys(zip);
-        return new Makr_ShoppingCart_Items_Screen();
+        ShopCalc.UpdateShipping(ShippingAmount_Field.GetAttribute("value"));
+        ShopCalc.UpdateTax(TaxAmount_Field.GetAttribute("value"));
+        CheckPrices();
+        return this;
+    }
+
+    private void CheckPrices(){
+        //This function will need to be called by the functions updating the prices on things.
+        Assert.assertEquals(ShopCalc.ExpectedTotal(), TotalAmount_Field.GetAttribute("value"));
     }
 
     public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(String pass){
@@ -72,11 +100,12 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
             Password.SendKeys(pass);
             ConfirmButton.tap();
         }
-        return new Makr_ShoppingCart_ConfirmAddress_Screen();
+        return new Makr_ShoppingCart_ConfirmAddress_Screen(ShopCalc);
     }
 
-    public void GetSubTotal(){
-        System.out.println("******====="+ String.valueOf(SubTotalAmount_Field.isDisplayed()));
+    public Makr_Home_Screen BackHome(){
+        EmptyButton.tap();
+        return new Makr_Home_Screen();
     }
 
 
