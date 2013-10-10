@@ -32,12 +32,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement Password = new appElement("Password", By.xpath("//window[1]/secure[7]"));
     appElement ConfirmButton = new appElement("ConfirmButton", By.xpath("//window[1]/button[28]"));
 
-    //Going to use these to set the initial values
-    //TODO need to get these values and convert from strings - might add this to a new base
-    private float SubTotalAmount;
-    private float TaxAmount;
-    private float PromoDiscountAmount;
-    private float TotalAmount;
+
 
     //TODO need to also check to make sure there are items on this screen
 
@@ -59,13 +54,14 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     }
 
     public Makr_ShoppingCart_Items_Screen addPromoCode(String pcode){
-        //String total =  GrandTotalAmount.GetAttribute("value");
+        //This is going to have to update the total to an expected value
 
         PromoCode.SendKeys(pcode);
         return new Makr_ShoppingCart_Items_Screen();
     }
 
     public Makr_ShoppingCart_Items_Screen addZipCode(String zip){
+        //This is going to have to update the total to an expected value
         ZipCode.SendKeys(zip);
         return new Makr_ShoppingCart_Items_Screen();
     }
