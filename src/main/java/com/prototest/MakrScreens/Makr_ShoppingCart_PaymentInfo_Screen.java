@@ -16,7 +16,7 @@ import org.junit.Assert;
  * when logged in as a facebook user this screen will not have the save payment checkbox present
  */
 public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
-    //TODO finish this screen!
+    //TODO Need to figure out a way to pass billing address into this screen -- might be able to handle this with a shopping cart base class
     appElement NameOnCard = new appElement("NameOnCard", By.xpath("//window[1]/textfield[1]"));
     appElement ExpiryDate = new appElement("ExpiryDate", By.xpath("//window[1]/textfield[2]"));
     appElement CardNumber = new appElement("CardNumber", By.xpath("//window[1]/textfield[3]"));
@@ -90,7 +90,7 @@ public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
         return this;
     }
 
-    public Makr_ShoppingCart_PaymentInfo_Screen KnownInvalid(){
+    public Makr_ShoppingCart_PaymentInfo_Screen KnownInvalidCC(){
         //This method will be called when a known invalid CC number is provided
         if(EnteredPaymentInfo && EnteredBillingInfo){
             ContinueButton.tap();
@@ -103,6 +103,18 @@ public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
             }
         }
         return this;
+    }
+
+    public Makr_ShoppingCart_FinishOrder_Screen KnownValidCC(){
+        //this method will be called when a known valid cc number is provided
+        if(EnteredPaymentInfo && EnteredBillingInfo){
+            ContinueButton.tap();
+            if(ConfirmInvalidCC.isDisplayed()){
+                Assert.fail("Valid Credit Card was not validated -- or device lost connection to the internet");
+            }
+        }
+
+        return new Makr_ShoppingCart_FinishOrder_Screen();
     }
 
 
