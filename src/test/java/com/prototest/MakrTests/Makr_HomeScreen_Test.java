@@ -16,12 +16,12 @@ public class Makr_HomeScreen_Test extends appiumTestBase {
 
     @Test
     public void Derp(){
-        Makr_Home_Screen.StartMaker().ClickProjects().SelectProject(3);
+        Makr_Home_Screen.StartMaker().ClickProjects();
     }
 
     @Test
     public void CheckTotal(){
-        Makr_Home_Screen.StartMaker().ClickShoppingCart().GetSubTotal();
+        Makr_Home_Screen.StartMaker().ClickShoppingCart().tapCheckout("happier").SelectExistingAddress(1).TapContinue().ChangeShipping(3);
     }
 
     @Test

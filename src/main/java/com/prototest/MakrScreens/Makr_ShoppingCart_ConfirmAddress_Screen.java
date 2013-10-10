@@ -17,10 +17,12 @@ import org.junit.Assert;
  * addresses already entered and saved should be presented to the users
  */
 public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
-    appElement BackButton = new appElement("ShoppingCart_Address_BackButton", By.xpath("//window[7]/button[7]"));
-    appElement CancelOrderButton = new appElement("ShoppingCart_CancelOrder_Button", By.xpath("//window[7]/button[8]"));
+    appElement BackButton = new appElement("ShoppingCart_Address_BackButton", By.xpath("//window[1]/button[7]"));
+    appElement CancelOrderButton = new appElement("ShoppingCart_CancelOrder_Button", By.xpath("//window[1]/button[8]"));
     appElement NewAddress = new appElement("NewAddress", By.xpath("//window[1]/button[10]"));
-    appElement ContinueButton = new appElement("ContinueButton", By.xpath("//window[1]/button[21]"));
+    appElement ContinueSelectedButton = new appElement("ContinueButton", By.xpath("//window[1]/button[11]")); //this button is only valid when an address is selected
+    appElement ContinueEnteredButton = new appElement("ContinueButton", By.xpath("//window[1]/button[11]"));
+
 
     //New address fields go here these will only show up if no other address has been entered previously or user taps new address
     appElement AddressFName = new appElement("AddressFName", By.xpath("//window[1]/textfield[1]"));
@@ -48,6 +50,7 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
 
     List<appElement> ScreenElements;
     private Boolean addressEntered = false;
+    private boolean addressSelected = false;
 
     public Makr_ShoppingCart_ConfirmAddress_Screen(){
         InitList();
@@ -60,7 +63,7 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
         ScreenElements.add(BackButton);
         ScreenElements.add(CancelOrderButton);
         ScreenElements.add(NewAddress);
-        ScreenElements.add(ContinueButton);
+
     }
 
     public Makr_ShoppingCart_ConfirmAddress_Screen SelectExistingAddress(int addressNum){
@@ -69,12 +72,12 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
         if(SelectedAddress.verifyPresent())
         {
             SelectedAddress.tap();
-            addressEntered = true;
+            addressSelected = true;
         }
         else{
             if(FirstExistingAddress.verifyPresent()){
                 FirstExistingAddress.tap();
-                addressEntered = true;
+                addressSelected = true;
             }
             else{
                 Assert.fail("The selected address located at: " + ExistingAddressLocator + " or " + FirstExistingAddress.GetElementName());
@@ -112,7 +115,10 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends appiumScreenBase {
 
     public Makr_ShoppingCart_ShippingMethod_Screen TapContinue(){
         if(addressEntered){
-            ContinueButton.tap();
+            ContinueEnteredButton.tap();
+        }
+        if(addressSelected){
+            ContinueSelectedButton.tap();
         }
         else{
             Assert.fail("Tried to click on continue button without an address selected - Test Script Logic Error");

@@ -1,6 +1,6 @@
 package com.prototest.MakrScreens;
 
-import com.prototest.appiumcore.appElement;
+import com.prototest.appiumcore.*;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 11:45 AM
  * This screen is used during the order process to select the shipping method
  */
-public class Makr_ShoppingCart_ShippingMethod_Screen {
+public class Makr_ShoppingCart_ShippingMethod_Screen extends appiumScreenBase {
     appElement Continue = new appElement("ContinueButton", By.xpath("//window[1]/button[13]"));
 
     //Default shipping method - also a button
@@ -32,7 +32,46 @@ public class Makr_ShoppingCart_ShippingMethod_Screen {
     appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath(""));
     appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath(""));
 
+    List<appElement> ScreenElements;
 
+    public Makr_ShoppingCart_ShippingMethod_Screen(){
+        InitList();
+        VerifyContent(ScreenElements);
+
+    }
+
+    private void InitList() {
+        ScreenElements = new ArrayList<appElement>();
+        ScreenElements.add(Continue);
+        ScreenElements.add(DefaultShipping);
+    }
+
+    public Makr_ShoppingCart_ShippingMethod_Screen ChangeShipping(int method){
+        DefaultShipping.tap();
+        switch (method){
+            case 1:
+                FedExGround.tap();
+                break;
+            case 2:
+                FedExExpress.tap();
+                break;
+            case 3:
+                FedExTwoDay.tap();
+                break;
+            case 4:
+                FedExStandard.tap();
+                break;
+            default:
+                FedExGround.tap();
+                break;
+        }
+        return this;
+    }
+
+    public Makr_ShoppingCart_PaymentInfo_Screen ClickContinue(){
+        Continue.tap();
+        return new Makr_ShoppingCart_PaymentInfo_Screen();
+    }
 
 
 }
