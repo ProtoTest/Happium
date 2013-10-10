@@ -31,11 +31,14 @@ public class Makr_ShoppingCart_FinishOrder_Screen extends appiumScreenBase {
     appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[24]"));
     appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[26]"));
 
+    private Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
+
     List<appElement> ScreenElements;
 
-    public Makr_ShoppingCart_FinishOrder_Screen(){
+    public Makr_ShoppingCart_FinishOrder_Screen(Makr_ShoppingCart_Base.ShoppingCalculator shop){
         InitList();
         VerifyContent(ScreenElements);
+        ShopCalc = shop;
     }
 
     private void InitList() {
@@ -46,6 +49,15 @@ public class Makr_ShoppingCart_FinishOrder_Screen extends appiumScreenBase {
         ScreenElements.add(ShippingEdit);
         ScreenElements.add(ItemEdit);
         ScreenElements.add(SubmitOrder);
+    }
+
+    public Makr_ShoppingCart_PaymentInfo_Screen EditBilling(){
+        BillingEditButton.tap();
+        return new Makr_ShoppingCart_PaymentInfo_Screen(ShopCalc);
+    }
+    public Makr_ShoppingCart_ConfirmAddress_Screen EditShipping(){
+        ShippingEdit.tap();
+        return new Makr_ShoppingCart_ConfirmAddress_Screen(ShopCalc);
     }
 
 

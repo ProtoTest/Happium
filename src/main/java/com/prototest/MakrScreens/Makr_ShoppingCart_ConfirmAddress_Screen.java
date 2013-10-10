@@ -51,6 +51,9 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
     List<appElement> ScreenElements;
     private Boolean addressEntered = false;
     private boolean addressSelected = false;
+
+    //this is used to determine if the shipping address will be used for billing
+    private boolean saveShipping = false;
     private Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
 
 
@@ -107,7 +110,22 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
 
     public Makr_ShoppingCart_ConfirmAddress_Screen TapSaveShipping(){
         AddressSaveShipping.tap();
+        //since the AddressSaveShipping is a UIAButton and not a UIASwitch we'll have to figure out what state it's in by guessing
+        //we know that it starts as unchecked, so the saveShipping bool is set to false by default.  We'll have to change the state of the bool
+        //everytime this function is called in the same instance of this screen
+        if(saveShipping){
+            saveShipping = false;
+        }
+        else{
+            saveShipping = true;
+        }
+
         return this;
+    }
+
+    private void SaveShipping(){
+        ShopCalc.UpdateShipping(AddressLine1.GetAttribute("value"), AddressLine2.GetAttribute("value"), AddressCity.GetAttribute("value"), AddressState.GetAttribute("value"),
+                AddressZip.GetAttribute("value"));
     }
 
     public Makr_ShoppingCart_ConfirmAddress_Screen TapSaveBilling(){
@@ -127,6 +145,10 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
         }
         //Before leaving this screen we should check to make sure that none of the prices changed
         VerifyPricesUnchanged();
+        if(saveShipping){
+            //This is to make sure the shipping information is passed into the payment screen properly
+            SaveShipping();
+        }
         return new Makr_ShoppingCart_ShippingMethod_Screen(ShopCalc);
     }
     //SubtotalAmount = //window[1]/text[11]
