@@ -20,6 +20,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement EmptyButton = new appElement("BacktoHome", By.xpath("//window[1]/button[10]"));
 
     appElement InvalidPromoCode = new appElement("InvalidPromoCode", By.xpath("//window[1]/text[25]"));
+    appElement RemoveFirstItemButton = new appElement("RemoveFirstItemButton", By.xpath("//window[1]/tableview[1]/cell[1]/button[2]"));
 
     //these are different on each sub-screen --argh!
     appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("//window[1]/text[8]"));
@@ -104,8 +105,34 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     }
 
     public Makr_Home_Screen BackHome(){
+        Assert.assertTrue("Shopping Cart is empty", EmptyButton.isDisplayed());
         EmptyButton.tap();
         return new Makr_Home_Screen();
+    }
+
+    public Makr_ShoppingCart_Items_Screen VerifyItemsMatchCartIcon(){
+        int iconval = VerifyShoppingCartAmountIcon();
+        String items_str = Items.GetAttribute("value");
+        int items_int = 0;
+        //strip off the non number bits of the items string
+        items_str = items_str.replace("Items (", "");
+        items_str = items_str.replace(")", "");
+        //convert the string number to an int
+        items_int = Integer.parseInt(items_str);
+        //Verify that the icon and the items screen are equal
+        Assert.assertEquals("Verify the ShoppingCart Icon matches the ShoppingCart items screen: ", iconval, items_int);
+        return this;
+    }
+
+    public Makr_ShoppingCart_Items_Screen RemoveItemFromCart(){
+        RemoveFirstItemButton.tap();
+        if(EmptyButton.isDisplayed()){
+            EmptyButton.tap();
+        }
+        else{
+            VerifyItemsMatchCartIcon();
+        }
+        return this;
     }
 
 

@@ -51,7 +51,7 @@ public class Makr_Projects_Screen extends Makr_MenuBar_HeaderScreen {
     }
 
     public Makr_Projects_SelectedProject_Screen SelectProject(int projectID){
-        String thing = "[" + String.valueOf(projectID) + "]";
+        String thing = "[" + String.valueOf(projectID) + "]/text[1]";
         String elementXpath = Project + thing;
         appElement SelectedProject = new appElement("SelectedProject", By.xpath(elementXpath));
         SelectedProject.tap();

@@ -101,7 +101,7 @@ public class Makr_ShoppingCart_Base {
         }
 
         public String ExpectedTotal(){
-            Float Expected = SubTotalAmount + ShippingAmount + TaxAmount + PromoDiscountAmount;
+            Float Expected = SubTotalAmount + ShippingAmount + TaxAmount - PromoDiscountAmount;
             String Price = "$" + String.valueOf(Expected);
             return Price;
         }

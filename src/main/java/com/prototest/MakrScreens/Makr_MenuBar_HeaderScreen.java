@@ -10,6 +10,7 @@ package com.prototest.MakrScreens;
 
 import com.prototest.appiumcore.appElement;
 import com.prototest.appiumcore.appiumScreenBase;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -49,6 +50,13 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
     public Makr_Menu_NewProject_Screen OpenProjectMenu(){
         PlusButton.tap();
         return new Makr_Menu_NewProject_Screen();
+    }
+
+    public int VerifyShoppingCartAmountIcon(){
+        String value = ShoppingCartButton.GetAttribute("value");
+        int val = Integer.parseInt(value);
+        Assert.assertTrue("Verify that shopping cart icon is greater than zero", val > 0);
+        return val;
     }
 
 
