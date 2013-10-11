@@ -22,14 +22,14 @@ public class Makr_ShoppingCart_FinishOrder_Screen extends appiumScreenBase {
 
     appElement ItemEdit = new appElement("ItemEdit", By.xpath("//window[1]/tableview[1]/cell[4]/button[1]"));
 
-    appElement SubmitOrder = new appElement("SubmitOrder", By.xpath("//window[1]/button[18]"));
+    appElement SubmitOrder = new appElement("SubmitOrder", By.xpath("//window[1]/button[15]"));
 
     //these are different on each sub-screen --argh!
-    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("/window[1]/text[18]"));
-    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath("//window[1]/text[20]"));
-    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath("//window[1]/text[22]"));
-    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[24]"));
-    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[26]"));
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("/window[1]/text[13]"));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath("//window[1]/text[15]"));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath("//window[1]/text[17]"));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[19]"));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[21]"));
 
     private Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
 

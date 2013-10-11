@@ -20,7 +20,7 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
     appElement BackButton = new appElement("ShoppingCart_Address_BackButton", By.xpath("//window[1]/button[7]"));
     appElement CancelOrderButton = new appElement("ShoppingCart_CancelOrder_Button", By.xpath("//window[1]/button[8]"));
     appElement NewAddress = new appElement("NewAddress", By.xpath("//window[1]/button[10]"));
-    appElement ContinueSelectedButton = new appElement("ContinueButton", By.xpath("//window[1]/button[11]")); //this button is only valid when an address is selected
+    appElement ContinueSelectedButton = new appElement("ContinueButton", By.xpath("//window[1]/button[12]")); //this button is only valid when an address is selected
     appElement ContinueEnteredButton = new appElement("ContinueButton", By.xpath("//window[1]/button[11]"));
 
 
@@ -42,14 +42,14 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
     appElement FirstExistingAddress = new appElement("FirstExistingAddress", By.xpath("//window[1]/UIACollectionView[1]/UIACollectionCell[1]/text[3]"));
 
     //these are different on each sub-screen --argh!
-    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("//window[1]/text[11]"));
-    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath("//window[1]/text[13]"));
-    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath("//window[1]/text[15]"));
-    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[17]"));
-    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[19]"));
+    appElement SubTotalAmount_Field = new appElement("SubTotalAmount", By.xpath("//window[1]/text[13]"));
+    appElement ShippingAmount_Field = new appElement("ShippingAmount", By.xpath("/window[1]/text[15]"));
+    appElement TaxAmount_Field = new appElement("TaxAmount", By.xpath("//window[1]/text[17]"));
+    appElement PromoDiscount_Field = new appElement("PromoDiscount", By.xpath("//window[1]/text[19]"));
+    appElement TotalAmount_Field = new appElement("TotalAmount", By.xpath("//window[1]/text[21]"));
 
     List<appElement> ScreenElements;
-    private Boolean addressEntered = false;
+    private boolean addressEntered = false;
     private boolean addressSelected = false;
 
     //this is used to determine if the shipping address will be used for billing

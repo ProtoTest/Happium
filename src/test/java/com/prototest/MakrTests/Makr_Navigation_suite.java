@@ -16,7 +16,7 @@ public class Makr_Navigation_suite extends appiumTestBase {
     @Test
     public void Login() {
         //Preconditions: user can't be logged in or this test will fail
-        Makr_Home_Screen.StartMaker().OpenUserMenu().tapLogin().emailLogin("chancock@prototest.com", "happy!");
+        Makr_Home_Screen.StartMaker().OpenUserMenu().tapLogin().emailLogin("surban@prototest.com", "happier!");
     }
 
 

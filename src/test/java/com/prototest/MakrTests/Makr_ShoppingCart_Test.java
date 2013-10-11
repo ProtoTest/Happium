@@ -23,7 +23,7 @@ public class Makr_ShoppingCart_Test extends appiumTestBase  {
     public void Checkout(){
         //Pre-conditions: User must have previously non-ordered project in slot 1
         Makr_Home_Screen.StartMaker().ClickProjects().SelectProject(1).OrderPrintsandProof().tapProjectMenu().SelectProject(1).OrderPrintsandProof().addPromoCode("ADMIN").addZipCode("80123")
-                .RemoveItemFromCart().tapCheckout("happy!").SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinueToFinish().ClickSubmit().TapBackHome();
+                .RemoveItemFromCart().tapCheckout("happier").SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinueToFinish().ClickSubmit().TapBackHome();
 
     }
 

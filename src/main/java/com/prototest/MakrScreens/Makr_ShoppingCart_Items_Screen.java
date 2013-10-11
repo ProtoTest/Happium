@@ -35,7 +35,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
 
     //This is the password confirmation screen field that paypopup
     appElement Password = new appElement("Password", By.xpath("//window[1]/secure[7]"));
-    appElement ConfirmButton = new appElement("ConfirmButton", By.xpath("//window[1]/button[28]"));
+    appElement ConfirmButton = new appElement("ConfirmButton", By.xpath("//window[1]/button[29]"));
 
     public static Makr_ShoppingCart_Base.ShoppingCalculator ShopCalc;
 
@@ -71,19 +71,17 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     public Makr_ShoppingCart_Items_Screen addPromoCode(String pcode){
         //This is going to have to update the total to an expected value
         PromoCode.SendKeys(pcode);
-        if(InvalidPromoCode.isDisplayed()){
-            //TODO log invalid promo code applied
-        }
-        else{
-            ShopCalc.UpdatePromo(PromoDiscount_Field.GetAttribute("value"));
-            CheckPrices();
-        }
+        AppMainWindow.tap();
+        ShopCalc.UpdatePromo(PromoDiscount_Field.GetAttribute("value"));
+        CheckPrices();
+
         return this;
     }
 
     public Makr_ShoppingCart_Items_Screen addZipCode(String zip){
         //This is going to have to update the total to an expected value
         ZipCode.SendKeys(zip);
+        AppMainWindow.tap();
         ShopCalc.UpdateShipping(ShippingAmount_Field.GetAttribute("value"));
         ShopCalc.UpdateTax(TaxAmount_Field.GetAttribute("value"));
         CheckPrices();
@@ -96,6 +94,8 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     }
 
     public Makr_ShoppingCart_ConfirmAddress_Screen tapCheckout(String pass){
+
+
         Checkout.tap();
         if(ConfirmButton.isDisplayed()){
             Password.SendKeys(pass);
@@ -129,6 +129,11 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         RemoveFirstItemButton.tap();
         if(EmptyButton.isDisplayed()){
             EmptyButton.tap();
+        }else{
+            ShopCalc.UpdateSubTotal(SubTotalAmount_Field.GetAttribute("value"));
+            ShopCalc.UpdateShipping(ShippingAmount_Field.GetAttribute("value"));
+            ShopCalc.UpdateTax(TaxAmount_Field.GetAttribute("value"));
+            ShopCalc.UpdatePromo(PromoDiscount_Field.GetAttribute("value"));
         }
         return this;
     }

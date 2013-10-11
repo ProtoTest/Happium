@@ -11,7 +11,7 @@ import org.junit.Assert;
  * User: sethurban
  * Date: 10/10/13
  * Time: 3:53 PM
- * To change this template use File | Settings | File Templates.
+ * This screen is displayed when an order is confirmed.
  */
 public class Makr_ShoppingCart_ConfirmOrder_Screen extends Makr_MenuBar_HeaderScreen {
 
