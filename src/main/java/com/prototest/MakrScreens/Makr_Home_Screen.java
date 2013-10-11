@@ -25,7 +25,7 @@ public class Makr_Home_Screen extends Makr_MenuBar_HeaderScreen {
     appElement WeddingButton = new appElement("Wedding", By.name("WEDDING"));
     appElement BabyButton = new appElement("Baby", By.name("BABY"));
     appElement HolidayButton = new appElement("Holiday", By.name("HOLIDAY"));
-    appElement ScrollView = new appElement("ScrollView", By.xpath("//window[1]/UIACollectionView[1]/scrollview[1]"));
+    appElement ScrollView = new appElement("ScrollView", By.xpath("//window[1]/scrollview[1]"));
 
     List<appElement> ScreenElements;
 

@@ -13,6 +13,7 @@ import org.junit.Test;
  * To change this template use File | Settings | File Templates.
  */
 public class Chris_Makr_Test extends appiumTestBase {
+
     @Test
     public void foo(){
 
