@@ -15,10 +15,10 @@ import java.util.List;
  * This is the login screen, displayed before the Main screen sometimes.
  */
 public class Makr_Login_Screen extends appiumScreenBase {
-    appElement usernameField = new appElement("UserNameField", By.xpath("//window[1]/textfield[1]"));
-    appElement PasswordField = new appElement("PasswordField", By.xpath("//window[1]/secure[2]"));
-    appElement LoginButton = new appElement("LoginButton", By.xpath("//window[1]/button[5]"));
-    appElement NewUserButton = new appElement("RegisterButton", By.xpath("//window[1]/button[7]"));
+    appElement usernameField = new appElement("UserNameField", By.xpath("//window[1]/textfield[8]"));
+    appElement PasswordField = new appElement("PasswordField", By.xpath("//window[1]/secure[6]"));
+    appElement LoginButton = new appElement("LoginButton", By.xpath("//window[1]/button[25]"));
+    appElement NewUserButton = new appElement("RegisterButton", By.xpath("//window[1]/button[27]"));
     appElement FaceBookLogin = new appElement("FaceBook_Login", By.name("lgnFacebookLoginButton normal"));
     appElement ForgotPassword = new appElement("ForgotPassword", By.name("FORGOT PASSWORD"));
 

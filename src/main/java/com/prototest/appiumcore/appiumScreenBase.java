@@ -57,11 +57,11 @@ public class appiumScreenBase {
     protected void VerifyContent(List<appElement> elements){
         if(elements.size() > 0){
             for(int i = 0; i < elements.size(); i++){
-                if(elements.get(i).verifyPresent()){
-                    System.out.println(elements.get(i).GetElementName() + " is present");
+                if(elements.get(i).isDisplayed()){
+                    System.out.println(elements.get(i).GetElementName() + " is displayed");
                 }
                 else{
-                    System.out.println(elements.get(i).GetElementName() + " is NOT present");
+                    System.out.println(elements.get(i).GetElementName() + " is NOT displayed");
                 }
 
             }

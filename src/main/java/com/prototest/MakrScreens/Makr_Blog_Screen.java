@@ -44,16 +44,8 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(Blog);
         ScreenElements.add(BlgSidebar);
-        ScreenElements.add(AllPosts);
-        ScreenElements.add(Business);
-        ScreenElements.add(Celebrations);
-        ScreenElements.add(Design);
-        ScreenElements.add(Holiday);
-        ScreenElements.add(MakrNews);
-        ScreenElements.add(Uncategorized);
-        ScreenElements.add(Wedding);
 
-    }
+          }
 
     public void SelectBlog(int blogID){
         String stuff = "[" + String.valueOf(blogID) + "]";

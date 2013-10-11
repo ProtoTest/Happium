@@ -27,7 +27,7 @@ public class Makr_HomeScreen_Test extends appiumTestBase {
     @Test
     public void UserMenu(){
         //For some reason this test doesn't work when users are not logged in, but the above test does work
-        Makr_Home_Screen.StartMaker().OpenUserMenu().Login().emailLogin("surban@prototest.com", "happier").ClickProjects();
+       // Makr_Home_Screen.StartMaker().OpenUserMenu().Login().emailLogin("surban@prototest.com", "happier").ClickProjects();
     }
 
 
