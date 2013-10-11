@@ -20,6 +20,9 @@ public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
        appElement MyPromoCodes = new appElement("MyPromoCodes",By.xpath("//window[1]/button[14]"));
        appElement ChangePassword = new appElement("ChangePassword",By.xpath("//window[1]/button[15]"));
        appElement LogOut = new appElement("LogOut",By.xpath("//window[1]/button[16]"));
+       //Log out confirmation pop-up
+       appElement Cancel = new appElement("Cancel",By.name("CANCEL"));
+       appElement Yes = new appElement("Yes",By.name("YES"));
 
        List<appElement> ScreenElements;
 
@@ -36,6 +39,8 @@ public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
         ScreenElements.add(MyPromoCodes);
         ScreenElements.add(ChangePassword);
         ScreenElements.add(LogOut);
+        ScreenElements.add(Cancel);
+        ScreenElements.add(Yes);
         }
     public void TapOrderHistory() {
         OrderHistory.tap();
@@ -50,6 +55,13 @@ public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
     public void TapLogOut() {
         LogOut.tap();
     }
+    public void TapCancel() {
+        Cancel.tap();
+    }
+    private void TapYes() {
+        Yes.tap();
+    }
+
 
 
 
