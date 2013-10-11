@@ -18,7 +18,6 @@ import java.util.List;
 public class Makr_ShoppingCart_Base {
     public static class ShoppingCalculator{
         //Going to use these to set the initial values
-        //TODO need to get these values and convert from strings
         private String SubTotal_str;
         private String Shipping_str;
         private String Tax_str;
@@ -34,11 +33,19 @@ public class Makr_ShoppingCart_Base {
         private List<Float> Prices;
 
         //Shipping information used for billing
-        private String AddressLine1;
-        private String AddressLine2;
-        private String City;
-        private String State;
-        private String Zip;
+        private boolean savedFromShipping = false;
+        private String m_AddressLine1;
+        private String m_AddressLine2;
+        private String m_City;
+        private String m_State;
+        private String m_Zip;
+
+        //Payment information to be used in FinishOrder Verification
+        private String m_CCName;
+        private String m_CCNumber;
+        private String m_ExpiryDate;
+        private String m_CVCCode;
+
 
         public ShoppingCalculator(){
             PriceStrings = new ArrayList<String>();
@@ -114,6 +121,51 @@ public class Makr_ShoppingCart_Base {
         public String getPromo(){
             String promo_str = "$"+ String.valueOf(PromoDiscountAmount);
             return promo_str;
+        }
+        public void UpdateShipping(String lineOne, String lineTwo, String city, String state, String zip){
+            m_AddressLine1 = lineOne;
+            m_AddressLine2 = lineTwo;
+            m_City = city;
+            m_State = state;
+            m_Zip = zip;
+            savedFromShipping = true;
+        }
+        public String getAddressLine1(){
+            return m_AddressLine1;
+        }
+        public String getAddressLine2(){
+            return m_AddressLine2;
+        }
+        public String getCity(){
+            return m_City;
+        }
+        public String getState(){
+            return m_State;
+        }
+        public String getZip(){
+            return m_Zip;
+        }
+        public Boolean SavedFromBilling(){
+            return savedFromShipping;
+        }
+        //Credit card information
+        public void UpdatePaymentInfo(String name, String ccnum, String expire, String CVC){
+            m_CCName = name;
+            m_CCNumber = ccnum;
+            m_ExpiryDate = expire;
+            m_CVCCode = CVC;
+        }
+        public String getCCName(){
+            return m_CCName;
+        }
+        public String getCCNumber(){
+            return m_CCNumber;
+        }
+        public String getCVCcode(){
+            return m_CVCCode;
+        }
+        public String getExpire(){
+            return m_ExpiryDate;
         }
 
     }

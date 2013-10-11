@@ -16,7 +16,7 @@ import org.junit.Assert;
  * when logged in as a facebook user this screen will not have the save payment checkbox present
  */
 public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
-    //TODO Need to figure out a way to pass billing address into this screen -- might be able to handle this with a shopping cart base class
+    //TODO Need to capture the button to select a saved creditcard
     appElement NameOnCard = new appElement("NameOnCard", By.xpath("//window[1]/textfield[1]"));
     appElement ExpiryDate = new appElement("ExpiryDate", By.xpath("//window[1]/textfield[2]"));
     appElement CardNumber = new appElement("CardNumber", By.xpath("//window[1]/textfield[3]"));
@@ -78,15 +78,27 @@ public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
         CardNumber.SendKeys(CCNum);
         CVCCode.SendKeys(CVC);
         EnteredPaymentInfo = true;
+        //Add the payment info to shopCalc for confirmation on FinishOrder Screen
+        ShopCalc.UpdatePaymentInfo(NameOnCard.GetAttribute("value"), CardNumber.GetAttribute("value"), ExpiryDate.GetAttribute("value"),
+                CVCCode.GetAttribute("value"));
         return this;
     }
 
     public Makr_ShoppingCart_PaymentInfo_Screen EnterBillingInfo(String Address1, String Address2, String City, String State, String Zip){
-        AddressLine1.SendKeys(Address1);
-        AddressCity.SendKeys(City);
-        AddressLine2.SendKeys(Address2);
-        AddressState.SendKeys(State);
-        AddressZip.SendKeys(Zip);
+        if(ShopCalc.SavedFromBilling()){
+            Assert.assertEquals(ShopCalc.getAddressLine1(), AddressLine1.GetAttribute("value"));
+            Assert.assertEquals(ShopCalc.getAddressLine2(), AddressLine2.GetAttribute("value"));
+            Assert.assertEquals(ShopCalc.getCity(), AddressCity.GetAttribute("value"));
+            Assert.assertEquals(ShopCalc.getState(), AddressState.GetAttribute("value"));
+            Assert.assertEquals(ShopCalc.getZip(), AddressZip.GetAttribute("value"));
+        }
+        else{
+            AddressLine1.SendKeys(Address1);
+            AddressCity.SendKeys(City);
+            AddressLine2.SendKeys(Address2);
+            AddressState.SendKeys(State);
+            AddressZip.SendKeys(Zip);
+        }
         EnteredBillingInfo = true;
         return this;
     }
@@ -114,8 +126,13 @@ public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
                 Assert.fail("Valid Credit Card was not validated -- or device lost connection to the internet");
             }
         }
-
-        return new Makr_ShoppingCart_FinishOrder_Screen();
+        //confirm that the payment details haven't changed before moving onto the new screen
+        Assert.assertEquals(ShopCalc.getSubTotal(), SubTotalAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.getShipping(), ShippingAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.getTax(), TaxAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.getPromo(), PromoDiscount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.ExpectedTotal(), TotalAmount_Field.GetAttribute("value"));
+        return new Makr_ShoppingCart_FinishOrder_Screen(ShopCalc);
     }
 
 
