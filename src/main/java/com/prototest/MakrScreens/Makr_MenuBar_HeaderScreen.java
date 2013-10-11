@@ -68,6 +68,10 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
         Assert.assertTrue("Verify that shopping cart icon is greater than zero", val > 0);
         return val;
     }
+    public  Makr_Menu_User_Screen OpenMenu() {
+        MenuButton.tap();
+        return new Makr_Menu_User_Screen();
+    }
 
 
 

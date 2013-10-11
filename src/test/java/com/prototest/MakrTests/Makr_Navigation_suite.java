@@ -1,6 +1,8 @@
 package com.prototest.MakrTests;
 
+import com.prototest.MakrScreens.Makr_Blog_Screen;
 import com.prototest.MakrScreens.Makr_Home_Screen;
+import com.prototest.MakrScreens.Makr_Menu_User_Account_screen;
 import com.prototest.appiumcore.appiumTestBase;
 import org.junit.Test;
 
@@ -19,5 +21,9 @@ public class Makr_Navigation_suite extends appiumTestBase {
         Makr_Home_Screen.StartMaker().OpenUserMenu().tapLogin().emailLogin("chancock@prototest.com", "happy!");
     }
 
+    @Test
+    public void Logout() {
+       Makr_Home_Screen.StartMaker().OpenMenu().tapAccountButton().TapLogOut();
+    }
 
 }
