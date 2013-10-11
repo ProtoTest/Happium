@@ -16,7 +16,7 @@ import org.junit.Assert;
  */
 public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     appElement ScreenTitle = new appElement("ScreenTitle", By.xpath("//window[1]/text[2]"));
-    appElement Items = new appElement("Items", By.xpath("//window[1]/text[3]"));
+    appElement Items = new appElement("Items", By.xpath("//window[1]/text[5]"));
     appElement EmptyButton = new appElement("BacktoHome", By.xpath("//window[1]/button[10]"));
 
     appElement InvalidPromoCode = new appElement("InvalidPromoCode", By.xpath("//window[1]/text[25]"));
@@ -111,6 +111,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
     }
 
     public Makr_ShoppingCart_Items_Screen VerifyItemsMatchCartIcon(){
+        //this function won't work because the shopping cart menu button item count can't be retrieved
         int iconval = VerifyShoppingCartAmountIcon();
         String items_str = Items.GetAttribute("value");
         int items_int = 0;
@@ -128,9 +129,6 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         RemoveFirstItemButton.tap();
         if(EmptyButton.isDisplayed()){
             EmptyButton.tap();
-        }
-        else{
-            VerifyItemsMatchCartIcon();
         }
         return this;
     }

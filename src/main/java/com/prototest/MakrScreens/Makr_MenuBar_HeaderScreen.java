@@ -47,9 +47,19 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
         MenuBarElements.add(PlusButton);
     }
 
-    public Makr_Menu_NewProject_Screen OpenProjectMenu(){
+    public Makr_Menu_NewProject_Screen tapNewProjectMenu(){
         PlusButton.tap();
         return new Makr_Menu_NewProject_Screen();
+    }
+
+    public Makr_Home_Screen tapHomeMenu(){
+        HomeButton.tap();
+        return new Makr_Home_Screen();
+    }
+
+    public Makr_Projects_Screen tapProjectMenu(){
+        ProjectsButton.tap();
+        return new Makr_Projects_Screen();
     }
 
     public int VerifyShoppingCartAmountIcon(){

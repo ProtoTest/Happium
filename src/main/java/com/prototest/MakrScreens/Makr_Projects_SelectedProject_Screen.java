@@ -26,13 +26,14 @@ public class Makr_Projects_SelectedProject_Screen extends Makr_MenuBar_HeaderScr
     appElement Twitter = new appElement("Twitter",By.xpath("//window[1]/scrollview[1]/button[6]"));
     appElement email = new appElement("email", By.xpath("//window[1]/scrollview[1]/button[7]"));
 
-    //OrderPrints
+    //OrderPrintsandProof
     appElement OrderText = new appElement("OrderText", By.xpath("//window[1]/scrollview[1]/scrollview[1]/scrollview[1]/text[1]"));
     //Need to figure out a way to change quantity
     appElement QuantityButton = new appElement("QuantityButton", By.xpath("//window[1]/scrollview[1]/scrollview[1]/scrollview[1]/button[1]"));
-    appElement AddtoCart = new appElement("AddtoCart", By.xpath("//window[1]/scrollview[1]/scrollview[1]/scrollview[1]/button[2]"));
+    appElement Envelopes = new appElement("AddtoCart", By.xpath("//window[1]/scrollview[1]/scrollview[1]/scrollview[1]/button[2]"));
+    appElement AddtoCart = new appElement("AddtoCart", By.xpath("/window[1]/scrollview[1]/scrollview[1]/scrollview[1]/button[3]"));
 
-    //OrderPrints Two
+    //OrderPrintsandProof Two
     appElement CheckoutNow = new appElement("CheckoutNow", By.xpath("//window[1]/scrollview[1]/scrollview[1]/button[1]"));
     appElement ContinueMaking = new appElement("ContinueMaking", By.xpath("//window[1]/scrollview[1]/scrollview[1]/button[1]"));
 
@@ -71,8 +72,9 @@ public class Makr_Projects_SelectedProject_Screen extends Makr_MenuBar_HeaderScr
         ScreenElements.add(email);
     }
 
-    public Makr_ShoppingCart_Items_Screen OrderPrints(){
+    public Makr_ShoppingCart_Items_Screen OrderPrintsandProof(){
         OrderPrints.tap();
+        ProofFrontandBack();
         AddtoCart.tap();
         CheckoutNow.tap();
         return new Makr_ShoppingCart_Items_Screen();
@@ -89,6 +91,7 @@ public class Makr_Projects_SelectedProject_Screen extends Makr_MenuBar_HeaderScr
 
     public void OrderPrints_ContinueMaking(){
         OrderPrints.tap();
+        ProofFrontandBack();
         AddtoCart.tap();
         ContinueMaking.tap();
     }
@@ -97,13 +100,6 @@ public class Makr_Projects_SelectedProject_Screen extends Makr_MenuBar_HeaderScr
         return OrderText.GetAttribute("value").equalsIgnoreCase(text);
     }
 
-    public void TapOrderPrints1() {
-        OrderPrints.tap();
-        Checkedmyspelling.tap();
-        Iunderstandthatcolors.tap();
-        ProofFrontNext.tap();
-
-    }
 
     public Makr_Projects_SelectedProject_Screen TapOrderPrints2() {
         OrderPrints.tap();
@@ -114,6 +110,19 @@ public class Makr_Projects_SelectedProject_Screen extends Makr_MenuBar_HeaderScr
         Iunderstandthatcolors.tap();
         ProofFrontNext.tap();
         return new Makr_Projects_SelectedProject_Screen();
+    }
+
+    private void ProofFrontandBack(){
+        if(Checkedmyspelling.isDisplayed()){
+            Checkedmyspelling.tap();
+            Iunderstandthatcolors.tap();
+            ProofFrontNext.tap();
+            if(Checkedmyspelling.isDisplayed()){
+                Checkedmyspelling.tap();
+                Iunderstandthatcolors.tap();
+                ProofFrontNext.tap();
+            }
+        }
     }
 
 

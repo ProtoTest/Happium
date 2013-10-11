@@ -80,11 +80,18 @@ public class Makr_ShoppingCart_ShippingMethod_Screen extends appiumScreenBase {
         return this;
     }
 
-    public Makr_ShoppingCart_PaymentInfo_Screen ClickContinue(){
+    public Makr_ShoppingCart_PaymentInfo_Screen ClickContinuetoPay(){
         Assert.assertEquals(ShopCalc.getShipping(), ShippingAmount_Field.GetAttribute("value"));
         Assert.assertEquals(ShopCalc.ExpectedTotal(), TotalAmount_Field.GetAttribute("value"));
         Continue.tap();
         return new Makr_ShoppingCart_PaymentInfo_Screen(ShopCalc);
+    }
+
+    public Makr_ShoppingCart_FinishOrder_Screen ClickContinueToFinish(){
+        Assert.assertEquals(ShopCalc.getShipping(), ShippingAmount_Field.GetAttribute("value"));
+        Assert.assertEquals(ShopCalc.ExpectedTotal(), TotalAmount_Field.GetAttribute("value"));
+        Continue.tap();
+        return new Makr_ShoppingCart_FinishOrder_Screen(ShopCalc);
     }
 
 

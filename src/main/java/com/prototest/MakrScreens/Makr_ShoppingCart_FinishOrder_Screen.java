@@ -59,6 +59,17 @@ public class Makr_ShoppingCart_FinishOrder_Screen extends appiumScreenBase {
         ShippingEdit.tap();
         return new Makr_ShoppingCart_ConfirmAddress_Screen(ShopCalc);
     }
+    public Makr_ShoppingCart_ConfirmOrder_Screen ClickSubmit(){
+        SubmitOrder.tap();
+        while(SubmitOrder.isDisplayed()){
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+        return new Makr_ShoppingCart_ConfirmOrder_Screen();
+    }
 
 
 

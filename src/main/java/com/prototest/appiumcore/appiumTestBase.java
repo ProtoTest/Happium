@@ -40,7 +40,7 @@ public class appiumTestBase {
 
         //capabilities.setCapability("app", app.getAbsolutePath());
 
-        driver = new RemoteWebDriver(new URL("http://10.10.1.71:4723/wd/hub"), capabilities);
+        driver = new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
         window = new appElement("Main_Window", By.xpath("//window[1]"));
     }
 
