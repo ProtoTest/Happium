@@ -6,6 +6,7 @@ package com.prototest.appiumcore;
  * Date: 9/9/13
  * Time: 6:03 PM
  * Elements for appium
+ * 101113: Attempted to add logFile entries
  */
 
 import org.openqa.selenium.By;
@@ -20,12 +21,14 @@ public class appElement {
     private WebDriver driver;
     private String name;
     private WebElement element;
+    private static appiumTestLog.logger logFile;
 
 
     public appElement(String n, By b){
         this.name = n;
         this.by = b;
         this.driver = appiumTestBase.getDriver();
+        logFile = appiumTestBase.logFile;
 
         //this.element = driver.findElement(b);
     }
@@ -55,6 +58,7 @@ public class appElement {
 
     public void tap(){
         setAppElement();
+        logFile.AddLog("Tap on Element: "+ this.name + "with locator:\t\t"+ this.by.toString());
         element.click();
     }
 
@@ -76,14 +80,15 @@ public class appElement {
         boolean present = false;
 
         while(!present){
-            System.out.println("Trying to find element:" + name + " with locator: " + by.toString());
+            logFile.AddLog("Trying to find element:" + name + " with locator: " + by.toString());
             if(!driver.findElements(by).isEmpty()){
                 present = true;
             }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                logFile.AddLog(e.getStackTrace().toString());
+
             }
         }
     }

@@ -16,6 +16,7 @@ public class appiumTestLog {
         private List<String> Results = new ArrayList<String>();
 
         public void AddLog(String log){
+            System.out.println(log);
             Results.add(log);
         }
 
