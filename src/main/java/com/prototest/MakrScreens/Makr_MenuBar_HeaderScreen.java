@@ -73,6 +73,11 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
         return new Makr_Menu_User_Screen();
     }
 
+    public Makr_Blog_Screen OpenBlog() {
+        BlogButton.tap();
+        return new Makr_Blog_Screen();
+    }
+
 
 
 

@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class Makr_Menu_User_App_Settings extends appiumScreenBase {
     //App Settings
-    appElement AppSettings = new appElement("AppSettings",By.xpath("//window[1]/button[3]"));
     appElement Smartguidesswitch = new appElement("Smartguidesswitch",By.xpath("//window[1]/switch[1]"));
     appElement PushNotificationsswitch= new appElement("PushNotificationswitch",By.xpath("//window[1]/switch[2]"));
 
@@ -31,13 +30,9 @@ public class Makr_Menu_User_App_Settings extends appiumScreenBase {
 
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
-        ScreenElements.add(AppSettings);
         ScreenElements.add(Smartguidesswitch);
         ScreenElements.add(PushNotificationsswitch);
 }
-    public void TapAppSetting() {
-        AppSettings.tap();
-    }
     public void TapSmartguidesswitch() {
         Smartguidesswitch.tap();
     }

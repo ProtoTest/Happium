@@ -14,7 +14,7 @@ import java.util.List;
  * Time: 11:39 AM
  * Screen used when blog is selected from the Makr_Blog_screen
  */
-public class Makr_Blog_SelectedBlog_Screen extends appiumTestBase {
+public class Makr_Blog_SelectedBlog_Screen extends appiumScreenBase {
 
     appElement BackButton = new appElement("BackButton", By.name("makBackButton normal"));
     appElement Pinterest =new appElement("Pinterest", By.name("shriconPinterest normal"));

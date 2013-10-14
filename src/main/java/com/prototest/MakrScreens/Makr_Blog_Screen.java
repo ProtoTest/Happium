@@ -45,7 +45,15 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
         ScreenElements.add(Blog);
         ScreenElements.add(BlgSidebar);
 
-          }
+    }
+
+    public Makr_Blog_SelectedBlog_Screen SelectedBlog(int BlogID){
+        String thing = "[" + String.valueOf(BlogID) + "]/text[1]";
+        String elementXpath = "//window{1}/UIACollectionView{1}/UIACollectionCell" + thing;
+        appElement SelectedBlog = new appElement("SelectedBlog", By.xpath(elementXpath));
+        SelectedBlog.tap();
+        return new Makr_Blog_SelectedBlog_Screen();
+    }
 
     public void SelectBlog(int blogID){
         String stuff = "[" + String.valueOf(blogID) + "]";
@@ -54,28 +62,34 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
         SelectBlog.tap();
 
     }
-    public void BigSidebar() {
+    public Makr_Blog_Screen Openblogsidebar() {
         BlgSidebar.tap();
-
+        return this;
     }
+
     public void AllPosts() {
         AllPosts.tap();
     }
-    public void Buainess() {
+
+    public void Business() {
         Business.tap();
     }
+
     public void Celebrations() {
         Celebrations.tap();
     }
+
     public void Design() {
         Design.tap();
     }
+
     public void Holiday() {
         Holiday.tap();
     }
     public void MakrNews() {
         MakrNews.tap();
     }
+
     public void Wedding() {
         Wedding.tap();
     }

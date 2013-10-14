@@ -47,6 +47,18 @@ public class Makr_Menu_User_Screen extends appiumScreenBase {
         LoginButton.tap();
         return new Makr_Login_Screen();
     }
+    public Makr_Menu_User_App_Settings tapAppSettings() {
+        AppSettingsButton.tap();
+        return new Makr_Menu_User_App_Settings();
+    }
+    public Makr_Menu_User_Help tapHelp() {
+        HelpButton.tap();
+        return new Makr_Menu_User_Help();
+    }
+    public Makr_Menu_User_Terms_Conditions tapTerms(){
+        TermsandConditionsButton.tap();
+        return new Makr_Menu_User_Terms_Conditions();
+    }
 
 
     /* This stuff was removed in the latest version

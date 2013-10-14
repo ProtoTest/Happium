@@ -58,6 +58,11 @@ public class Makr_Projects_Screen extends Makr_MenuBar_HeaderScreen {
         return new Makr_Projects_SelectedProject_Screen();
     }
 
+    public Makr_Projects_Screen OpenSidebar() {
+        SideBarMenu.tap();
+        return this;
+    }
+
 
 
 }
