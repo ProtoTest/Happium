@@ -82,7 +82,7 @@ public class Makr_ShoppingCart_Base {
         }
 
         private Float ConvertToFloat(String price){
-            price.replace("$", "");
+            price = price.replace("$", "");
             Float fPrice = Float.valueOf(price);
             return fPrice;
         }
@@ -101,25 +101,33 @@ public class Makr_ShoppingCart_Base {
         }
 
         public String ExpectedTotal(){
+            String Price;
             Float Expected = SubTotalAmount + ShippingAmount + TaxAmount - PromoDiscountAmount;
-            String Price = "$" + String.valueOf(Expected);
+            if(Expected <= 0){
+                Price = "$0.00";
+            }
+            else{
+                Price = "$" + String.valueOf(Expected) + "0";
+                //gonna tack on an extra zero since
+                //Price = Price + "0";
+            }
             return Price;
         }
-
+        //tacking on zero's here untill I can figure out a way to get this to do it automatically
         public String getSubTotal(){
-            String sub_str = "$"+ String.valueOf(SubTotalAmount);
+            String sub_str = "$"+ String.valueOf(SubTotalAmount) + "0";
             return sub_str;
         }
         public String getShipping(){
-            String ship_str = "$"+ String.valueOf(ShippingAmount);
+            String ship_str = "$"+ String.valueOf(ShippingAmount) + "0";
             return ship_str;
         }
         public String getTax(){
-            String tax_str = "$"+ String.valueOf(TaxAmount);
+            String tax_str = "$"+ String.valueOf(TaxAmount) + "0";
             return tax_str;
         }
         public String getPromo(){
-            String promo_str = "$"+ String.valueOf(PromoDiscountAmount);
+            String promo_str = "$"+ String.valueOf(PromoDiscountAmount) + "0";
             return promo_str;
         }
         public void UpdateShipping(String lineOne, String lineTwo, String city, String state, String zip){

@@ -6,10 +6,11 @@ package com.prototest.appiumcore;
  * Date: 9/9/13
  * Time: 1:02 PM
  * TestBase Class for appium Tests
+ * 101113: SU - Attempted to add test logging
  */
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -22,12 +23,15 @@ import java.net.URL;
 public class appiumTestBase {
     private static  WebDriver driver;
     private appElement window;
-    private appiumTestLog.logger logFile;
+    public static appiumTestLog.logger logFile;
 
+    public appiumTestBase(){
+        logFile = new appiumTestLog.logger();
+    }
     @Before
     public void setUp() throws Exception {
         System.out.println("Running Setup");
-        logFile = new appiumTestLog.logger();
+        logFile.AddLog("Initiating test suite: " + this.getClass().getSimpleName().toString());
         launchBrowser();
     }
 

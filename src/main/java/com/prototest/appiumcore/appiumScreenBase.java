@@ -55,7 +55,8 @@ public class appiumScreenBase {
     }
     /*This function has the list of elements passed into it to verify they are present on any given screen */
     protected void VerifyContent(List<appElement> elements){
-        if(elements.size() > 0){
+        //commented out to make tests run faster
+        /*if(elements.size() > 0){
             for(int i = 0; i < elements.size(); i++){
                 if(elements.get(i).isDisplayed()){
                     System.out.println(elements.get(i).GetElementName() + " is displayed");
@@ -65,7 +66,7 @@ public class appiumScreenBase {
                 }
 
             }
-        }
+        } */
     }
 
     private void Complete_SurveyOne(){
