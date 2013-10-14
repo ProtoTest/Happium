@@ -24,4 +24,11 @@ public class Makr_User_Menu_Suite extends appiumTestBase {
         //Need to add functions for Restore Purchases and Avery Print Alignment
         Makr_Home_Screen.StartMaker().OpenUserMenu().tapAppSettings().TapSmartguidesswitch().TapPushNotificationsswtich();
     }
+
+    @Test
+    public void Help() {
+        //Opens Help screen, Then opens FAQ
+        Makr_Home_Screen.StartMaker().OpenUserMenu().tapHelp().OpenFAQs();
+    }
+
 }
