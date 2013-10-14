@@ -58,7 +58,7 @@ public class appElement {
 
     public void tap(){
         setAppElement();
-        logFile.AddLog("Tap on Element: "+ this.name + "with locator:\t\t"+ this.by.toString());
+        logFile.AddLog("Tap on Element: "+ this.name + " with locator:\t"+ this.by.toString());
         element.click();
     }
 

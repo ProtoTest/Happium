@@ -78,6 +78,11 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
         return new Makr_Blog_Screen();
     }
 
+    public Makr_ShoppingCart_Items_Screen tapShoppingCart(){
+        ShoppingCartButton.tap();
+        return new Makr_ShoppingCart_Items_Screen();
+    }
+
 
 
 
