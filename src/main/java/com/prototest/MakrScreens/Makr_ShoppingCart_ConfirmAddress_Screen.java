@@ -104,6 +104,7 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
         AddressZip.SendKeys(Zip);
         AddressPhone.SendKeys(Phone);
         AddressDescription.SendKeys(Description);
+        SaveShipping();  //Save the entered information for use in the payment screen
         addressEntered = true;
         return this; //we dont' want to revalidate the entire screen by returning a new
     }
@@ -129,6 +130,7 @@ public class Makr_ShoppingCart_ConfirmAddress_Screen extends Makr_MenuBar_Header
     }
 
     public Makr_ShoppingCart_ConfirmAddress_Screen TapSaveBilling(){
+        ShopCalc.SavedFromBilling();
         AddressUseBilling.tap();
         return this;
     }

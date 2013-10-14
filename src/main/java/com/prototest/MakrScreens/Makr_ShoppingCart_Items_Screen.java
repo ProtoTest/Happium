@@ -110,9 +110,8 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         return new Makr_Home_Screen();
     }
 
-    public Makr_ShoppingCart_Items_Screen VerifyItemsMatchCartIcon(){
-        //this function won't work because the shopping cart menu button item count can't be retrieved
-        int iconval = VerifyShoppingCartAmountIcon();
+    public Makr_ShoppingCart_Items_Screen VerifyExpectedItems(int expectedItemNum){
+        //This will take the expected number of items and compare it to the number of items in the cart
         String items_str = Items.GetAttribute("value");
         int items_int = 0;
         //strip off the non number bits of the items string
@@ -121,7 +120,7 @@ public class Makr_ShoppingCart_Items_Screen extends Makr_MenuBar_HeaderScreen {
         //convert the string number to an int
         items_int = Integer.parseInt(items_str);
         //Verify that the icon and the items screen are equal
-        Assert.assertEquals("Verify the ShoppingCart Icon matches the ShoppingCart items screen: ", iconval, items_int);
+        Assert.assertEquals("Verify the expected number matchs the actual number of items in the Shopping Cart", expectedItemNum, items_int);
         return this;
     }
 

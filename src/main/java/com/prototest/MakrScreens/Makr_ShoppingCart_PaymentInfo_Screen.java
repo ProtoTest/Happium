@@ -105,14 +105,15 @@ public class Makr_ShoppingCart_PaymentInfo_Screen extends appiumScreenBase {
 
     public Makr_ShoppingCart_PaymentInfo_Screen KnownInvalidCC(){
         //This method will be called when a known invalid CC number is provided
+        //This is a test endpoint
         if(EnteredPaymentInfo && EnteredBillingInfo){
             ContinueButton.tap();
             if(ConfirmInvalidCC.isDisplayed()){
                 ConfirmInvalidCC.tap();
-                Assert.assertTrue(ConfirmInvalidCC.isDisplayed());
+                Assert.assertTrue("A known invalid CC was not validated", ConfirmInvalidCC.isDisplayed());
             }
             else{
-                Assert.fail("Invalid Credit Card was not validated");
+                Assert.fail("A known invalid CC was accepted as legit");
             }
         }
         return this;
