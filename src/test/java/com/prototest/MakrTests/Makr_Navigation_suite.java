@@ -23,7 +23,7 @@ public class Makr_Navigation_suite extends appiumTestBase {
 
     @Test
     public void Logout() {
-       Makr_Home_Screen.StartMaker().OpenMenu().tapAccountButton().TapLogOut();
+       Makr_Home_Screen.StartMaker().OpenMenu().tapAccountButton().TapLogOut().TapYes();
     }
 
 }

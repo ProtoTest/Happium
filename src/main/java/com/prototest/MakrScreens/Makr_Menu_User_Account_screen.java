@@ -52,14 +52,16 @@ public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
     public void TapChangePassword() {
         ChangePassword.tap();
     }
-    public void TapLogOut() {
+    public Makr_Menu_User_Account_screen TapLogOut() {
         LogOut.tap();
+        return this;
     }
     public void TapCancel() {
         Cancel.tap();
     }
-    private void TapYes() {
+    public Makr_Menu_User_Account_screen TapYes() {
         Yes.tap();
+        return this;
     }
 
 
