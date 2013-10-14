@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 1:41 PM
  *Makr_Menu_User_Account Maint. screen
  */
-public class Makr_Menu_User_Help extends appiumScreenBase {
+public class Makr_Menu_User_Help extends Makr_Menu_User_Screen {
     //Makr_Menu_User_Help
     appElement Help = new appElement("Makr_Menu_User_Help",By.xpath("//windown[1]/button[4]"));
     appElement FAQs = new appElement("FAQs",By.xpath("//window[1]/button[12]"));
