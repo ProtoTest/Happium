@@ -15,36 +15,49 @@ import org.junit.runners.MethodSorters;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Makr_Navigation_suite extends appiumTestBase {
-    private String Username = "chancock@prototest.com";
-    private String Password = "happy!";
+    private String Username = "surban@prototest.com";
+    private String Password = "happiest";
 
     @Test
     public void Nav_001_Login() {
+        logFile.AddLog("Starting Test: Login");
         //Preconditions: user can't be logged in or this test will fail
         Makr_Home_Screen.StartMaker().OpenUserMenu().tapLogin().emailLogin(Username, Password);
     }
 
     @Test
-    public void Nav_002_Sidebar() {
+    public void Nav_002_Projects() {
+        logFile.AddLog("Starting Test: Navigation Project");
        //This test checks the sidebar in Projects and Blog
-       Makr_Home_Screen.StartMaker().tapProjectMenu().OpenSidebar().OpenBlog().Openblogsidebar();
+       Makr_Home_Screen.StartMaker().tapProjectMenu().OpenSidebar();
     }
 
     @Test
-    public void Nav_003_BlogView() {
+    public void Nav_003_Blog(){
+        logFile.AddLog("Starting Test: Navigation Blog");
+        Makr_Home_Screen.StartMaker().OpenBlog().Openblogsidebar();
+    }
+
+    @Test
+    public void Nav_004_BlogView() {
         //Verify that Blog tiles take the user to the appropriate blog entry and that users can navigate back and forth between the blog screen and the blog view.
         //TODO fix this test
-        Makr_Home_Screen.StartMaker().OpenBlog().SelectedBlog(2).BackButton();
+        Makr_Home_Screen.StartMaker().OpenBlog().SelectBlog(2);
     }
 
     @Test
-    public void Nav_004_ProjectsMenu(){
+    public void Nav_005_ProjectsMenu(){
         //Verify that all the project menu items can be clicked and navigate to the appropriate screen
         Makr_Home_Screen.StartMaker().tapNewProjectMenu().ProjectMenuNavigationLoopTest();
     }
 
     @Test
-    public void Nav_005_Logout() {
+    public void Nav_006_UserMenu(){
+        Makr_Home_Screen.StartMaker().OpenUserMenu()
+    }
+
+    @Test
+    public void Nav_006_Logout() {
         //Preconditions: User must be logged in for this test to run
        Makr_Home_Screen.StartMaker().OpenMenu().tapAccountButton().TapLogOut().TapYes();
     }

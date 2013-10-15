@@ -70,7 +70,6 @@ public class appiumScreenBase {
     }
 
     private void Complete_SurveyOne(){
-
         OkButton.tap();
         sendResponse.tap();
     }

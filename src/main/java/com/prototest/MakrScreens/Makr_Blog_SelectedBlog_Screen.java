@@ -17,18 +17,18 @@ import java.util.List;
 public class Makr_Blog_SelectedBlog_Screen extends appiumScreenBase {
 
     appElement BackButton = new appElement("BackButton", By.name("makBackButton normal"));
-    appElement Pinterest =new appElement("Pinterest", By.name("shriconPinterest normal"));
-    appElement Facebook = new appElement("Facebook", By.name("shriconFacebook normal"));
-    appElement Twitter = new appElement("Twitter", By.name("shriconTwitter normal"));
-    appElement Email = new appElement("Email", By.name("shriconEmail normal"));
+    appElement Pinterest =new appElement("Pinterest", By.name("shrIconPinterest normal"));
+    appElement Facebook = new appElement("Facebook", By.name("shrIconFacebook normal"));
+    appElement Twitter = new appElement("Twitter", By.name("shrIconTwitter normal"));
+    appElement Email = new appElement("Email", By.name("shrIconEmail normal"));
+    appElement PostButton = new appElement("PostToSharing", By.name("Post"));
 
     List<appElement> ScreenElements;
 
     public Makr_Blog_SelectedBlog_Screen() {
         InitList();
-
+        VerifyContent(ScreenElements);
     }
-
 
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
@@ -42,17 +42,20 @@ public class Makr_Blog_SelectedBlog_Screen extends appiumScreenBase {
    public void BackButton() {
        BackButton.tap();
    }
+    /*  Right now we're unable to automated posting to any social media because Appium can't see into the post window for Pinterest, Facebook and Twitter
    public void Pinterest() {
        Pinterest.tap();
    }
    public void Facebook() {
        Facebook.tap();
+       PostButton.tap();
    }
    public void Twitter() {
        Twitter.tap();
-   }
-   public void Email() {
+   }  */
+   public Makr_emailSharing_Screen Email() {
        Email.tap();
+       return new Makr_emailSharing_Screen();
    }
 
 }

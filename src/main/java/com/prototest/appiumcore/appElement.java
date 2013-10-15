@@ -72,6 +72,12 @@ public class appElement {
         else {
             exists = false;
         }
+        if(exists){
+            logFile.AddLog("Element: " + name + " with Locator: " + by.toString() + " is present.");
+        }
+        else{
+            logFile.AddLog("Element: " + name + " with Locator: " + by.toString() + " is MISSING!");
+        }
         return exists;
 
     }

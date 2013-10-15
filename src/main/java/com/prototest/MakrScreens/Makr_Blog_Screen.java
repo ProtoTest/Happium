@@ -30,7 +30,8 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
 
     //These are the expected Blogs on page
 
-    String BlogSelect = "//window1/UIACollectionView[1]/UIACollectionCell";
+    String BlogSelect = "//window[1]/UIACollectionView[1]/UIACollectionCell";
+    appElement SecondBlog = new appElement("SecondBlog", By.xpath("//window[1]/UIACollectionView[1]/UIACollectionCell[2]/text[1]"));
 
     List<appElement> ScreenElements;
     List<appElement> SidebarElements;
@@ -57,19 +58,13 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
 
     }
 
-    public Makr_Blog_SelectedBlog_Screen SelectedBlog(int BlogID){
-        String thing = "[" + String.valueOf(BlogID) + "]/text[1]";
-        String elementXpath = "//window{1}/UIACollectionView{1}/UIACollectionCell" + thing;
-        appElement SelectedBlog = new appElement("SelectedBlog", By.xpath(elementXpath));
-        SelectedBlog.tap();
-        return new Makr_Blog_SelectedBlog_Screen();
-    }
-
-    public void SelectBlog(int blogID){
-        String stuff = "[" + String.valueOf(blogID) + "]";
+    public Makr_Blog_SelectedBlog_Screen SelectBlog(int blogID){
+        String stuff = "[" + String.valueOf(blogID) + "]/text[1]";
         String elementXpath = BlogSelect + stuff;
-        appElement SelectBlog = new appElement("SelectBlog", By.xpath(elementXpath));
-        SelectBlog.tap();
+        appElement SelectBlog = new appElement("SelectedBlog", By.xpath(elementXpath));
+        SelectBlog.tap(); /* */
+        //SecondBlog.tap();
+        return new Makr_Blog_SelectedBlog_Screen();
 
     }
     public Makr_Blog_Screen Openblogsidebar() {
