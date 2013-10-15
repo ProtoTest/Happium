@@ -60,6 +60,10 @@ public class Makr_Projects_Screen extends Makr_MenuBar_HeaderScreen {
 
     public Makr_Projects_Screen OpenSidebar() {
         SideBarMenu.tap();
+        SideBar_All.verifyPresent();
+        SideBar_Download.verifyPresent();
+        SideBar_AddCategory.verifyPresent();
+        SideBar_EditCategory.verifyPresent();
         return this;
     }
 

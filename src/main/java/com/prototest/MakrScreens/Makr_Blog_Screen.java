@@ -33,6 +33,7 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
     String BlogSelect = "//window1/UIACollectionView[1]/UIACollectionCell";
 
     List<appElement> ScreenElements;
+    List<appElement> SidebarElements;
 
    public Makr_Blog_Screen(){
        InitList();
@@ -44,6 +45,15 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(Blog);
         ScreenElements.add(BlgSidebar);
+        SidebarElements = new ArrayList<appElement>();
+        SidebarElements.add(AllPosts);
+        SidebarElements.add(Business);
+        SidebarElements.add(Celebrations);
+        SidebarElements.add(Design);
+        SidebarElements.add(Holiday);
+        SidebarElements.add(MakrNews);
+        SidebarElements.add(Uncategorized);
+        SidebarElements.add(Wedding);
 
     }
 
@@ -64,6 +74,14 @@ public class Makr_Blog_Screen extends Makr_MenuBar_HeaderScreen {
     }
     public Makr_Blog_Screen Openblogsidebar() {
         BlgSidebar.tap();
+        AllPosts.verifyPresent();
+        Business.verifyPresent();
+        Celebrations.verifyPresent();
+        Design.verifyPresent();
+        Holiday.verifyPresent();
+        MakrNews.verifyPresent();
+        Uncategorized.verifyPresent();
+        Wedding.verifyPresent();
         return this;
     }
 

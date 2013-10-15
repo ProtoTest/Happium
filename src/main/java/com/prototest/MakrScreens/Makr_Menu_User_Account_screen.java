@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 1:41 PM
  *Makr_Menu_User_Account Maint. screen
  */
-public class Makr_Menu_User_Account_screen extends Makr_MenuBar_HeaderScreen{
+public class Makr_Menu_User_Account_screen extends Makr_Menu_User_Screen{
        //Makr_Menu_User_Account
        appElement Signed_in_as = new appElement("Signed_in_as",By.xpath("//window[1]/text[3]"));
        appElement OrderHistory = new appElement("OrderHistory",By.xpath("//window[1]/button[13]"));

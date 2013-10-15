@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 1:41 PM
  *Makr_Menu_User_Account Maint. screen
  */
-public class Makr_Menu_User_Terms_Conditions extends appiumScreenBase {
+public class Makr_Menu_User_Terms_Conditions extends Makr_Menu_User_Screen {
     //Terms & Conditions
     appElement Terms = new appElement("Terms",By.xpath("//window[1]/button[5]"));
     appElement TermsService = new appElement("TermsService",By.xpath("//window[1]/button[12]"));
