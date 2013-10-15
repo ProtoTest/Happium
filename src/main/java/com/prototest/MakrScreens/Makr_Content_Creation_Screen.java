@@ -24,6 +24,11 @@ public class Makr_Content_Creation_Screen extends appiumScreenBase {
     appElement SaveButton = new appElement("SaveButton", By.name("SAVE"));
     appElement MakeButton = new appElement("MakeButton", By.name("make!"));
 
+    appElement ProjectTitle = new appElement("ProjectTitle", By.xpath("//window[1]/textfield[1]"));
+    appElement ProjectTitle_Clear = new appElement("ProjectTitle_Clear", By.xpath("/window[1]/textfield[1]/button[1]"));
+    appElement ProjectOk = new appElement("ProjectOK", By.xpath("//window[1]/button[1]"));
+
+
     appElement UndoButton = new appElement("UndoButton", By.xpath("//window[1]/button[5]"));
     appElement RedoButton = new appElement("RedoButton", By.xpath("//window[1]/button[6]"));
 
@@ -57,6 +62,16 @@ public class Makr_Content_Creation_Screen extends appiumScreenBase {
     public Makr_Menu_User_Screen tapUsermenu(){
         UserMenu.tap();
         return new Makr_Menu_User_Screen();
+    }
+
+    public Makr_Projects_SelectedProject_Screen MakeItem(String itemname){
+        MakeButton.tap();
+        if(itemname != ""){
+            ProjectTitle_Clear.tap();
+            ProjectTitle.SendKeys(itemname);
+        }
+        ProjectOk.tap();
+        return new Makr_Projects_SelectedProject_Screen();
     }
 
 

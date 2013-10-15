@@ -54,6 +54,13 @@ public class Makr_Navigation_suite extends appiumTestBase {
     }
 
     @Test
+    public void Nav_006_CreateProject(){
+        logFile.AddLog("Start Test: Create new project");
+        //From here users can get to the shoppping cart tests
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(1).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+
+    @Test
     public void Nav_006_UserMenu_UserLoggedIn(){
         logFile.AddLog("Start Test: Navigation User Menu - User logged in");
         //Pre-Conditions: User needs to be logged in
