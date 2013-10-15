@@ -17,7 +17,6 @@ import java.util.List;
 public class Makr_Content_Category_Screen extends appiumScreenBase {
     appElement ScreenTitle = new appElement("ScreenTitle", By.xpath("//window[1]/text[2]"));
     appElement BackButton = new appElement("BackButton", By.xpath("//window[1]/button[8]"));
-    appElement SelectDesign = new appElement("SelectDesign", By.name("SELECT A DESIGN"));
 
     appElement DesignTemplate = new appElement("DesignTemplate", By.xpath("//window[1]/UIACollectionView[1]"));
     List<appElement> ScreenElements;
@@ -30,7 +29,7 @@ public class Makr_Content_Category_Screen extends appiumScreenBase {
         ScreenElements = new ArrayList<appElement>();
         ScreenElements.add(ScreenTitle);
         ScreenElements.add(BackButton);
-        ScreenElements.add(SelectDesign);
+
     }
 
 

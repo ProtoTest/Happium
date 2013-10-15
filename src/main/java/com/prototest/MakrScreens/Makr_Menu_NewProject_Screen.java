@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
     appElement PlusButton = new appElement("PlusButton", By.name("wmbPlusButton normal"));
-    appElement NewProject = new appElement("NEW PROJECT", By.xpath("//window[1]/text[1]"));
+    appElement NewProject = new appElement("NEW PROJECT", By.xpath("//window[1]/text[4]"));
 
     //Selected menu Item
     appElement Category = new appElement("Category", By.name("Category"));
@@ -28,25 +28,33 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
     //The selected menu item above results are displayed in the SelectedList item
     //appElement SelectedList = new appElement("SelectedList", By.xpath("//window[1]/tableview[5]"));
     //category
-    appElement Category_Baby = new appElement("Category_Baby", By.name("Baby"));
-    appElement Category_Business = new appElement("Category_Business", By.name("Business"));
-    appElement Category_Gifting = new appElement("Category_Gifting", By.name("Gifting"));
-    appElement Category_Holiday = new appElement("Category_Holiday", By.name("Holiday"));
-    appElement Category_Kitchen = new appElement("Category_Kitchen", By.name("Kitchen"));
-    appElement Category_Moving = new appElement("Category_Moving", By.name("Moving"));
-    appElement Category_Organization = new appElement("Category_Organization", By.name("Organization"));
-    appElement Category_Packaging = new appElement("Category_Packaging", By.name("Packaging"));
-    appElement Category_Party = new appElement("Category_Party", By.name("Party"));
-    appElement Category_Promotion = new appElement("Category_Promotion", By.name("Promotion"));
-    appElement Category_Stationary = new appElement("Category_Stationery", By.name("Stationery"));
-    appElement Category_TableTop = new appElement("Category_TableTop", By.name("Table Top"));
-    appElement Category_ThankYou = new appElement("Category_ThankYou", By.name("Thank You"));
-    appElement Category_Wedding = new appElement("Category_Wedding", By.name("Wedding"));
+    appElement Category_Baby = new appElement("Category_Baby", By.xpath("//window[1]/tableview[2]/cell[1]"));
+    appElement Category_Business = new appElement("Category_Business", By.xpath("//window[1]/tableview[2]/cell[2]"));
+    appElement Category_Gifting = new appElement("Category_Gifting", By.name("//window[1]/tableview[2]/cell[3]"));
+    appElement Category_Holiday = new appElement("Category_Holiday", By.name("//window[1]/tableview[2]/cell[4]"));
+    appElement Category_Kitchen = new appElement("Category_Kitchen", By.name("//window[1]/tableview[2]/cell[5]"));
+    appElement Category_Moving = new appElement("Category_Moving", By.name("//window[1]/tableview[2]/cell[6]"));
+    appElement Category_Organization = new appElement("Category_Organization", By.name("//window[1]/tableview[2]/cell[7]"));
+    appElement Category_Packaging = new appElement("Category_Packaging", By.name("//window[1]/tableview[2]/cell[8]"));
+    appElement Category_Party = new appElement("Category_Party", By.name("//window[1]/tableview[2]/cell[9]"));
+    appElement Category_Promotion = new appElement("Category_Promotion", By.name("//window[1]/tableview[2]/cell[10]"));
+    appElement Category_Stationary = new appElement("Category_Stationery", By.name("//window[1]/tableview[2]/cell[11]"));
+    appElement Category_TableTop = new appElement("Category_TableTop", By.name("//window[1]/tableview[2]/cell[12]"));
+    appElement Category_ThankYou = new appElement("Category_ThankYou", By.name("//window[1]/tableview[2]/cell[13]"));
+    appElement Category_Wedding = new appElement("Category_Wedding", By.name("//window[1]/tableview[2]/cell[14]"));
+
+    //Format and Size submenus are handled in an array of elements
 
     //avery
     appElement Avery_Cards = new appElement("Cards", By.name("Cards"));
+    appElement Avery_Card_8869 = new appElement("Avery_Card_8869", By.xpath("//window[1]/tableview[6]/cell[1]/text[1]"));
+    appElement Avery_Card_22802 = new appElement("Avery_Card_22802", By.xpath("//window[1]/tableview[6]/cell[2]/text[1]"));
+    appElement Avery_Card_8820 = new appElement("Avery_Card_8820", By.xpath("//window[1]/tableview[6]/cell[3]/text[1]"));
     appElement Avery_labels = new appElement("Labels", By.name("Labels"));
-    appElement Avery_88221 = new appElement("88221", By.name("88221"));
+    appElement Avery_Label_8250 = new appElement("88221", By.xpath("//window[1]/tableview[6]/cell[1]/text[1]"));
+    appElement Avery_Label_8160 = new appElement("Label_8160", By.xpath("//window[1]/tableview[6]/cell[2]/text[1]"));
+    appElement Avery_Label_22807 = new appElement("Label_22807", By.xpath("//window[1]/tableview[6]/cell[3]/text[1]"));
+    appElement Avery_Label_8168 = new appElement("Label_8168", By.xpath("//window[1]/tableview[6]/cell[4]/text[1]"));
     //</editor-fold>
 
     List<appElement> MainItems;
@@ -54,6 +62,8 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
     List<appElement> SizeItems;
     List<appElement> AveryItems;
 
+    List<appElement> CategoryList;
+    List<List<appElement>> CategoryListofLists;
     List<appElement> BabyItems;
     List<appElement> BusinessItems;
     List<appElement> GiftingItems;
@@ -72,61 +82,81 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
     public Makr_Menu_NewProject_Screen(){
         InitList();
         VerifyContent(MainItems);
+        CategoryListofLists = new ArrayList<List<appElement>>();
     }
+    private String GenericCategoryLocator = "//window[1]/tableview[1]/cell[";
     private void InitWedding(){
-        SetupList(WeddingItems, "//window[1]/tableview[6]/cell[", 8);
+        WeddingItems = new ArrayList<appElement>();
+        SetupList(WeddingItems, GenericCategoryLocator, 8);
     }
     private void InitThankYou(){
-        SetupList(ThankyouItems, "//window[1]/tableview[6]/cell[", 2);
+        ThankyouItems = new ArrayList<appElement>();
+        SetupList(ThankyouItems, GenericCategoryLocator, 2);
     }
     private void InitTableTop(){
-        SetupList(TableTopItems, "//window[1]/tableview[6]/cell[", 5);
+        TableTopItems = new ArrayList<appElement>();
+        SetupList(TableTopItems, GenericCategoryLocator, 5);
     }
     private void InitStationary(){
-        SetupList(StationaryItems, "//window[1]/tableview[6]/cell[", 7);
+        StationaryItems = new ArrayList<appElement>();
+        SetupList(StationaryItems, GenericCategoryLocator, 7);
     }
     private void InitPromotion(){
-        SetupList(PromotionItems, "//window[1]/tableview[6]/cell[", 2);
+        PromotionItems = new ArrayList<appElement>();
+        SetupList(PromotionItems, GenericCategoryLocator, 2);
     }
     private void InitParty(){
-        SetupList(PartyItems, "//window[1]/tableview[6]/cell[", 12);
+        PartyItems = new ArrayList<appElement>();
+        SetupList(PartyItems, GenericCategoryLocator, 12);
     }
     private void InitPackaging(){
-        SetupList(PackagingItems, "//window[1]/tableview[6]/cell[", 7);
+        PackagingItems = new ArrayList<appElement>();
+        SetupList(PackagingItems, GenericCategoryLocator, 7);
     }
     private void InitOrganization(){
-        SetupList(OrganizationItems, "//window[1]/tableview[6]/cell[", 5);
+        OrganizationItems = new ArrayList<appElement>();
+        SetupList(OrganizationItems, GenericCategoryLocator, 5);
     }
     private void InitMoving(){
-        SetupList(Movingitems, "//window[1]/tableview[6]/cell[", 4);
+        Movingitems = new ArrayList<appElement>();
+        SetupList(Movingitems, GenericCategoryLocator, 4);
     }
     private void InitKitchen(){
-        SetupList(KitchenItems, "//window[1]/tableview[6]/cell[", 6);
+        KitchenItems = new ArrayList<appElement>();
+        SetupList(KitchenItems, GenericCategoryLocator, 6);
     }
     private void InitHoliday(){
-        SetupList(HolidayItems, "//window[1]/tableview[6]/cell[", 6);
+        HolidayItems = new ArrayList<appElement>();
+        SetupList(HolidayItems, GenericCategoryLocator, 6);
     }
     private void InitGifting() {
-        SetupList(GiftingItems, "//window[1]/tableview[6]/cell[", 9);
+        GiftingItems = new ArrayList<appElement>();
+        SetupList(GiftingItems, GenericCategoryLocator, 9);
     }
     private void InitBusinessItems() {
-        SetupList(BusinessItems, "//window[1]/tableview[6]/cell[", 7);
+        BusinessItems = new ArrayList<appElement>();
+        SetupList(BusinessItems, GenericCategoryLocator, 7);
     }
     private void InitBaby() {
-        SetupList(BabyItems, "//window[1]/tableview[6]/cell[", 6);
+        BabyItems = new ArrayList<appElement>();
+        SetupList(BabyItems, GenericCategoryLocator, 6);
     }
+
+    //These two are differnt
     private void InitSize() {
-        SetupList(SizeItems, "//window[1]/tableview[2]/cell[", 9);
+        SizeItems = new ArrayList<appElement>();
+        SetupList(SizeItems, "//window[1]/tableview[5]/cell[", 9);
     }
+
     private void InitFormat() {
-        SetupList(FormatItems, "//window[1]/tableview[4]/cell[", 14);
+        FormatItems = new ArrayList<appElement>();
+        SetupList(FormatItems, "//window[1]/tableview[3]/cell[", 14);
     }
 
     private void SetupList(List<appElement> list, String ReplaceString, int max){
-        list = new ArrayList<appElement>();
         for(int i = 1; i < max; i++){
             String num = Integer.toString(i);
-            list.add(new appElement("Item" + num, By.xpath(ReplaceString + "]")));
+            list.add(new appElement("Item" + num, By.xpath(ReplaceString + num + "]")));
         }
     }
     private void InitList() {
@@ -135,91 +165,98 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
         MainItems.add(Format);
         MainItems.add(Size);
         MainItems.add(Avery);
+        CategoryList = new ArrayList<appElement>();
+        CategoryList.add(Category_Baby);
+        CategoryList.add(Category_Business);
+        CategoryList.add(Category_Gifting);
+        CategoryList.add(Category_Holiday);
+        CategoryList.add(Category_Kitchen);
+        CategoryList.add(Category_Moving);
+        CategoryList.add(Category_Organization);
+        CategoryList.add(Category_Packaging);
+        CategoryList.add(Category_Party);
+        CategoryList.add(Category_Promotion);
+        CategoryList.add(Category_Stationary);
+        CategoryList.add(Category_TableTop);
+        CategoryList.add(Category_ThankYou);
+        CategoryList.add(Category_Wedding);
     }
-
-    public Makr_Content_Category_Screen OpenFormat(int item){
-        InitFormat();
-        Format.tap();
-        FormatItems.get(item).tap();
-        return new Makr_Content_Category_Screen();
-    }
+    //Use these functions to open a specific menu item
     public Makr_Content_Category_Screen OpenCategory(String cat, int item){
         //I hate the way the function works but i can't think of a faster way to do it
         Category.tap();
-        cat.toUpperCase();
-        if(cat == "BABY"){
+
+        if(cat == Category_Baby.GetElementName()){
             InitBaby();
             Category_Baby.tap();
             BabyItems.get(item).tap();
         }
-        if(cat == "BUSINESS"){
+        if(cat == Category_Business.GetElementName()){
             InitBusinessItems();
             Category_Business.tap();
             BusinessItems.get(item).tap();
         }
-        if(cat == "GIFTING"){
+        if(cat == Category_Gifting.GetElementName()){
             InitGifting();
             Category_Gifting.tap();
             GiftingItems.get(item).tap();
         }
-        if(cat == "HOLIDAY"){
+        if(cat == Category_Holiday.GetElementName()){
             InitHoliday();
             Category_Holiday.tap();
             HolidayItems.get(item).tap();
         }
-        if(cat == "KITCHEN"){
+        if(cat == Category_Kitchen.GetElementName()){
             InitKitchen();
             Category_Kitchen.tap();
             KitchenItems.get(item).tap();
         }
-        if(cat == "MOVING"){
+        if(cat == Category_Moving.GetElementName()){
             InitMoving();
             Category_Moving.tap();
             Movingitems.get(item).tap();
         }
-        if(cat == "ORGANIZATION"){
+        if(cat == Category_Organization.GetElementName()){
             InitOrganization();
             Category_Organization.tap();
             OrganizationItems.get(item).tap();
         }
-        if(cat == "PACKAGING"){
+        if(cat == Category_Packaging.GetElementName()){
             InitPackaging();
             Category_Packaging.tap();
             PackagingItems.get(item).tap();
         }
-        if(cat == "PARTY"){
+        if(cat == Category_Party.GetElementName()){
             InitParty();
             Category_Party.tap();
             PartyItems.get(item).tap();
         }
-        if(cat == "PROMOTION"){
+        if(cat == Category_Promotion.GetElementName()){
             InitPromotion();
             Category_Promotion.tap();
             PromotionItems.get(item).tap();
         }
-        if(cat == "STATIONERY"){
+        if(cat == Category_Stationary.GetElementName()){
             InitStationary();
             Category_Stationary.tap();
             StationaryItems.get(item).tap();
         }
-        if(cat == "TABLETOP"){
+        if(cat == Category_TableTop.GetElementName()){
             InitTableTop();
             Category_TableTop.tap();
             TableTopItems.get(item).tap();
         }
-        if(cat == "THANKYOU"){
+        if(cat == Category_ThankYou.GetElementName()){
             InitThankYou();
             Category_ThankYou.tap();
             ThankyouItems.get(item).tap();
         }
-        if(cat == "WEDDING"){
+        if(cat == Category_Wedding.GetElementName()){
             InitWedding();
             Category_Wedding.tap();
             WeddingItems.get(item).tap();
         }
-        else{
-            PlusButton.tap();
-        }
+
         return new Makr_Content_Category_Screen();
     }
 
@@ -232,7 +269,81 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
     public Makr_Content_Category_Screen OpenAvery(int item){
         Avery.tap();
         Avery_Cards.tap();
-        Avery_88221.tap();
+        Avery_Card_22802.tap();
+        return new Makr_Content_Category_Screen();
+    }
+
+    //These will check each and every menu item
+    public void CheckFormatNavs(){
+        InitFormat();
+        for(int i = 0; i <= FormatItems.size(); i++){
+            Format.tap();
+            OpenFormatItem(i);
+            PlusButton.tap();
+        }
+    }
+    public void CheckSizeNavs(){
+        InitSize();
+        for(int i = 0; i <= SizeItems.size(); i++){
+            Size.tap();
+            OpenSizeItem(i);
+            PlusButton.tap();
+        }
+    }
+    private void InitCategorySubs(){
+        //Used for the Category Nav test loop
+        InitBaby();
+        CategoryListofLists.add(BabyItems);
+        InitBusinessItems();
+        CategoryListofLists.add(BusinessItems);
+        InitGifting();
+        CategoryListofLists.add(GiftingItems);
+        InitHoliday();
+        CategoryListofLists.add(HolidayItems);
+        InitKitchen();
+        CategoryListofLists.add(KitchenItems);
+        InitMoving();
+        CategoryListofLists.add(Movingitems);
+        InitOrganization();
+        CategoryListofLists.add(OrganizationItems);
+        InitPackaging();
+        CategoryListofLists.add(PackagingItems);
+        InitParty();
+        CategoryListofLists.add(PartyItems);
+        InitPromotion();
+        CategoryListofLists.add(PromotionItems);
+        InitStationary();
+        CategoryListofLists.add(StationaryItems);
+        InitTableTop();
+        CategoryListofLists.add(TableTopItems);
+        InitThankYou();
+        CategoryListofLists.add(ThankyouItems);
+        InitWedding();
+        CategoryListofLists.add(WeddingItems);
+    }
+
+    public void CheckCategoryNavs(){
+        //Appium really doesn't like By.Name locators
+        //I fought with this function for 2 hours first with By.Name locators for the category submenus.  Appium must be disposing of the name
+        //or something after you tap on it once.  Xpaths work great, but they change with each build of the app.  ARG!
+        InitCategorySubs();
+        for(int i = 0; i <= CategoryList.size(); i++){
+            for(int x = 0; x <= CategoryListofLists.get(i).size(); x++){
+                Category.tap();
+                CategoryList.get(i).tap();
+                CategoryListofLists.get(i).get(x).tap();
+                //OpenCategory(CategoryList.get(i), x);
+                PlusButton.tap();
+            }
+        }
+    }
+
+    private Makr_Content_Category_Screen OpenFormatItem(int FormatNum){
+        FormatItems.get(FormatNum).tap();
+        return new Makr_Content_Category_Screen();
+    }
+    private Makr_Content_Category_Screen OpenSizeItem(int SizeItem){
+        SizeItems.get(SizeItem).tap();
         return new Makr_Content_Category_Screen();
     }
 
