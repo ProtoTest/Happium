@@ -40,7 +40,7 @@ public class Makr_Navigation_suite extends appiumTestBase {
     @Test
     public void Nav_004_ProjectsMenu(){
         //Verify that all the project menu items can be clicked and navigate to the appropriate screen
-        Makr_Home_Screen.StartMaker().tapNewProjectMenu().CheckCategoryNavs();
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().ProjectMenuNavigationLoopTest();
     }
 
     @Test
