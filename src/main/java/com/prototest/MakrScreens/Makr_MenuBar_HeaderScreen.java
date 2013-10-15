@@ -62,18 +62,12 @@ public class Makr_MenuBar_HeaderScreen extends appiumScreenBase {
         return new Makr_Projects_Screen();
     }
 
-    public int VerifyShoppingCartAmountIcon(){
-        String value = ShoppingCartButton.GetAttribute("value");
-        int val = Integer.parseInt(value);
-        Assert.assertTrue("Verify that shopping cart icon is greater than zero", val > 0);
-        return val;
-    }
-    public  Makr_Menu_User_Screen OpenMenu() {
+    public  Makr_Menu_User_Screen tapUserMenu() {
         MenuButton.tap();
         return new Makr_Menu_User_Screen();
     }
 
-    public Makr_Blog_Screen OpenBlog() {
+    public Makr_Blog_Screen tapBlog() {
         BlogButton.tap();
         return new Makr_Blog_Screen();
     }

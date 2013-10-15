@@ -25,9 +25,7 @@ public class Makr_Menu_User_App_Settings extends Makr_Menu_User_Screen {
     public Makr_Menu_User_App_Settings(){
         InitList();
         VerifyContent(ScreenElements);
-
     }
-
 
     private void InitList() {
         ScreenElements = new ArrayList<appElement>();
@@ -50,5 +48,4 @@ public class Makr_Menu_User_App_Settings extends Makr_Menu_User_Screen {
     public void AveryAlignment() {
          AveryAlignment.tap();
     }
-
-    }
+}

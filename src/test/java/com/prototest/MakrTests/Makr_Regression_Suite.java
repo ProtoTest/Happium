@@ -12,7 +12,7 @@ import org.junit.Test;
  * Time: 12:59 PM
  * This is our standard regression suite
  */
-public class Regression extends appiumTestBase {
+public class Makr_Regression_Suite extends appiumTestBase {
     @Test
     public void Reg(){
         String orderText = "Orders placed by 6PM will arrive on MONTH, DAY";
