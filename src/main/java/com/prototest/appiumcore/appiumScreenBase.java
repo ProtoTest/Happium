@@ -25,6 +25,7 @@ public class appiumScreenBase {
     appElement sendResponse = new appElement("SendResponse", By.name("Send Response"));
 
     public appiumScreenBase(){
+        /*Survey's have been removed it would seem
         Random r = new Random();
         int num = r.nextInt(101); //generate a random number between 1 and 100
         if(SurveyHeader.verifyPresent()){
@@ -44,7 +45,7 @@ public class appiumScreenBase {
             else{
                 //do survey two stuff --
             }
-        }
+        }  */
     }
     public void addScreenHistory(Object obj){
         ScreenHS.addScreen(obj);

@@ -20,9 +20,9 @@ public class Makr_Content_Creation_Screen extends appiumScreenBase {
     appElement SelectTemplate = new appElement("SelectTemplate", By.xpath("//window[1]/button[9]"));
 
     appElement UserMenu = new appElement("UserMenu", By.xpath("//window[1]/button[1]"));
-    appElement CloseButton = new appElement("CloseButton", By.name("CLOSE"));
-    appElement SaveButton = new appElement("SaveButton", By.name("SAVE"));
-    appElement MakeButton = new appElement("MakeButton", By.name("make!"));
+    appElement CloseButton = new appElement("CloseButton", By.xpath("//window[1]/button[9]"));
+    appElement SaveButton = new appElement("SaveButton", By.xpath("//window[1]/button[10]"));
+    appElement MakeButton = new appElement("MakeButton", By.xpath("//window[1]/button[11]"));
 
     appElement ProjectTitle = new appElement("ProjectTitle", By.xpath("//window[1]/textfield[1]"));
     appElement ProjectTitle_Clear = new appElement("ProjectTitle_Clear", By.xpath("/window[1]/textfield[1]/button[1]"));

@@ -314,6 +314,9 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
     }
     //These are the functions used to open specific menu items, the QAE needs to know which item they wish to open and the specific string (if applicable) they need to open it
     public Makr_Content_Category_Screen OpenFormatItem(int FormatNum){
+        if(FormatItems == null){
+            InitFormat();
+        }
         FormatItems.get(FormatNum).tap();
         return new Makr_Content_Category_Screen();
     }
