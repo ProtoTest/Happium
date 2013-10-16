@@ -71,7 +71,7 @@ public class Makr_Navigation_suite extends appiumTestBase {
     public void Nav_007_Logout() {
         logFile.AddLog("Start Test: Navigation Logout");
         //Preconditions: User must be logged in for this test to run
-       Makr_Home_Screen.StartMaker().tapUserMenu().tapAccountButton().TapLogOut().TapYes();
+       Makr_Home_Screen.StartMaker().tapUserMenu().tapAccountButton().tapLogOut().tapYes();
     }
 
     @Test

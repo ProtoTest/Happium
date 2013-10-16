@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 3:36 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Avery_Alignment_Screen extends Makr_Menu_User_App_Settings {
+public class Makr_Avery_PrinterAlignment_Screen extends Makr_Menu_User_App_Settings {
 
     appElement CloseButton = new appElement("CloseButton", By.xpath("//window[1]/button[6]"));
     appElement ArrowUp = new appElement("ArrowUp", By.xpath("//window[1]/button[7]"));
@@ -24,7 +24,7 @@ public class Avery_Alignment_Screen extends Makr_Menu_User_App_Settings {
 
     List<appElement> ScreenElements;
 
-    public Avery_Alignment_Screen(){
+    public Makr_Avery_PrinterAlignment_Screen(){
         InitList();
         VerifyContent(ScreenElements);
     }
@@ -39,7 +39,7 @@ public class Avery_Alignment_Screen extends Makr_Menu_User_App_Settings {
         ScreenElements.add(Readjust);
     }
 
-    public Avery_Alignment_Screen Taparrow(int Numofpresses){
+    public Makr_Avery_PrinterAlignment_Screen Taparrow(int Numofpresses){
         for(int i=0; i < Numofpresses; i++)
         ArrowUp.tap();
         return this;
