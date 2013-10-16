@@ -321,6 +321,9 @@ public class Makr_Menu_NewProject_Screen extends appiumScreenBase {
         return new Makr_Content_Category_Screen();
     }
     public Makr_Content_Category_Screen OpenSizeItem(int SizeItem){
+        if(SizeItems == null){
+            InitSize();
+        }
         SizeItems.get(SizeItem).tap();
         return new Makr_Content_Category_Screen();
     }
