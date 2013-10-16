@@ -49,10 +49,52 @@ public class New_Project_Create_Suite extends appiumTestBase {
     }
 
     @Test
-    public void New_Project_006() {
+     public void New_Project_006() {
         logFile.AddLog("Start Test: Create new project");
         //Product Labels
         Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(7).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_007() {
+        logFile.AddLog("Start Test: Create new project");
+        //Mailing Labels, failing
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(8).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_008() {
+        logFile.AddLog("Start Test: Create new project");
+        //Return Address Labels
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(9).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_009() {
+        logFile.AddLog("Start Test: Create new project");
+        //Round Stickers
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(10).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_010() {
+        logFile.AddLog("Start Test: Create new project");
+        //Book Plates
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(11).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_011() {
+        logFile.AddLog("Start Test: Create new project");
+        //Bottle Labels
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(12).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_012() {
+        logFile.AddLog("Start Test: Create new project");
+        //Jar Labels
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(13).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_013() {
+        logFile.AddLog("Start Test: Create new project");
+        //Wine Labels, Fails, never hits wine label in list
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(14).SelectTemplateOne().CreateThis().MakeItem("");
     }
 
 }
