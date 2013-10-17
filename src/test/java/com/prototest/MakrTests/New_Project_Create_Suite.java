@@ -96,5 +96,53 @@ public class New_Project_Create_Suite extends appiumTestBase {
         //Wine Labels, Fails, never hits wine label in list
         Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenFormatItem(14).SelectTemplateOne().CreateThis().MakeItem("");
     }
+    @Test
+    public void New_Project_014() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 3 1/2" x 2
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(1).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_015() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 5 1/2" x 4 1/4"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(2).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_016() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 5" x 7"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(3).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_017() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 3 1/2" x 4"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(4).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_018() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 2 5/8 x 1"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(5).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_019() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 2" x 2"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(6).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_020() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 3 1/2" x 5"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(7).SelectTemplateOne().CreateThis().MakeItem("");
+    }
+    @Test
+    public void New_Project_021() {
+        logFile.AddLog("Start Test: Create new project");
+        //Size 3 1/2" x 2"
+        Makr_Home_Screen.StartMaker().tapNewProjectMenu().OpenSizeItem(8).SelectTemplateOne().CreateThis().MakeItem("");
+    }
 
 }
