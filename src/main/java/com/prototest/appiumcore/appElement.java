@@ -21,6 +21,10 @@ public class appElement {
     private WebDriver driver;
     private String name;
     private WebElement element;
+    private Integer Xloc;
+    private Integer Yloc;
+    private Integer Xsize;
+    private Integer Ysize;
     private static appiumTestLog.logger logFile;
 
 
@@ -33,13 +37,23 @@ public class appElement {
         //this.element = driver.findElement(b);
     }
 
+    public appElement(String n, int x_loc, int y_loc, int x_size, int y_size){
+        this.name = n;
+        this.Xloc = x_loc;
+        this.Yloc = y_loc;
+        this.Xsize = x_size;
+        this.Ysize = y_size;
+
+        this.driver = appiumTestBase.getDriver();
+        logFile = appiumTestBase.logFile;
+    }
+
     public WebElement getAppElement(){
         return element;
     }
 
     public void setAppElement(){
         element = driver.findElement(by);
-
     }
 
     public String GetElementName(){
@@ -53,6 +67,12 @@ public class appElement {
 
     public boolean isDisplayed(){
         setAppElement();
+        if(element.isDisplayed()){
+            logFile.AddLog("Element: " + this.name + " is displayed on screen");
+        }
+        else{
+            logFile.AddLog("Element: " + this.name + " is NOT displayed on screen");
+        }
         return element.isDisplayed();
     }
 
@@ -60,6 +80,35 @@ public class appElement {
         logFile.AddLog("Tap on Element: "+ this.name + " with locator:\t"+ this.by.toString());
         setAppElement();
         element.click();
+    }
+
+    public void tapLoc(){
+        //This will only be usefull if we just need to tap something specific
+        int xcenter;
+        int ycenter;
+        //This function will attempt to tap on an object by screen location
+        //First need to check that all the values we need to do this are not null
+        if((Xsize != null) && (Ysize != null) && (Xloc != null) && (Yloc != null)){
+            //so the values are not equal to null we can attempt the tap
+            //We need to figure out the center of the element relative to the screen
+            xcenter = Xsize/2; //This value will be added to Xloc for the tap location
+            ycenter = Ysize/2; //This value will be added to Yloc for the tap location
+            Xloc += xcenter;
+            Yloc += ycenter;
+            //Now that we know where to tap, let's set up the stuff to do the tap
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            //We have to convert our computed values to doubles to execute the javascript --lame
+            Double X = (double) Xloc;
+            Double Y = (double) Yloc;
+            logFile.AddLog("Attempting to tap on Element: " + this.name + " by Screen Location Tap at X: " + String.valueOf(X) + " Y: " + String.valueOf(Y));
+            HashMap<String, Double> tapObject = new HashMap<String, Double>();
+            tapObject.put("x", X); //Pixels from left
+            tapObject.put("y", Y); //Pixels from top
+            js.executeScript("mobile: tap", tapObject);
+        }
+        else{
+            logFile.AddLog("Attempted to Tap on Screen Location for Element: " + this.name + " with no location variables set!");
+        }
     }
 
     public boolean verifyPresent(){

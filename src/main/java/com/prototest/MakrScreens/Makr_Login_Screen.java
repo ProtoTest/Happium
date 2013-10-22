@@ -3,6 +3,7 @@ package com.prototest.MakrScreens;
 import com.prototest.appiumcore.appElement;
 import com.prototest.appiumcore.appiumScreenBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,9 @@ import java.util.List;
  * This is the login screen, displayed before the Main screen sometimes.
  */
 public class Makr_Login_Screen extends appiumScreenBase {
-    appElement usernameField = new appElement("UserNameField", By.xpath("//window[1]/textfield[8]"));
-    appElement PasswordField = new appElement("PasswordField", By.xpath("//window[1]/secure[6]"));
-    appElement LoginButton = new appElement("LoginButton", By.xpath("//window[1]/button[25]"));
+    appElement usernameField = new appElement("UserNameField", By.tagName("UIATextField"));
+    appElement PasswordField = new appElement("PasswordField", By.tagName("UIASecureTextField"));
+    appElement LoginButton = new appElement("LoginButton", 452, 500, 124, 40);
     appElement NewUserButton = new appElement("RegisterButton", By.xpath("//window[1]/button[27]"));
     appElement FaceBookLogin = new appElement("FaceBook_Login", By.name("lgnFacebookLoginButton normal"));
     appElement ForgotPassword = new appElement("ForgotPassword", By.name("FORGOT PASSWORD"));
@@ -46,9 +47,13 @@ public class Makr_Login_Screen extends appiumScreenBase {
     public Makr_Home_Screen emailLogin(String username, String password){
         //AppMainWindow.tap(); //this needs to be done to get the login screen elements to be visible
 
+        //usernameField.tapLoc(252, 420);
         usernameField.SendKeys(username);
         PasswordField.SendKeys(password);
-        LoginButton.tap();
+        HideKeyboard.tap();
+        LoginButton.tapLoc();
+
+
 
 
         return new Makr_Home_Screen();

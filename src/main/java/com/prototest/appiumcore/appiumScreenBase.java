@@ -14,6 +14,7 @@ import java.util.Random;
  */
 public class appiumScreenBase {
     protected appElement AppMainWindow = new appElement("AppMainWindow", By.xpath("//window[1]"));
+    protected appElement HideKeyboard = new appElement("HideKeyboard", By.xpath("//window[2]/UIAKeyboard[1]/button[6]"));
 
     protected appiumScreenHistory.ScreenHistory ScreenHS = new appiumScreenHistory.ScreenHistory();
     appElement SurveyHeader = new appElement("SurveyHeader", By.xpath("//window[1]/navigationBar[1]/text[1]")); //This should be present on both surveys
