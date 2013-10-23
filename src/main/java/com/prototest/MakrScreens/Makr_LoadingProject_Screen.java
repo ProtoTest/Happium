@@ -11,7 +11,7 @@ import org.openqa.selenium.By;
  * This screen is displayed when the user first logs into the application
  */
 public class Makr_LoadingProject_Screen extends appiumScreenBase {
-    appElement LoadingText = new appElement("Loading Your Projects", By.id("Loading Your Projects"));
+    appElement LoadingText = new appElement("Loading Your Projects", By.xpath("//window[1]/text[2]"));
 
     public boolean VerifyLoadingScreenPresent(){
         boolean present;

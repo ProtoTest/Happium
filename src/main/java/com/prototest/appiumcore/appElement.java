@@ -9,10 +9,7 @@ package com.prototest.appiumcore;
  * 101113: Attempted to add logFile entries
  */
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.HashMap;
 
@@ -25,6 +22,7 @@ public class appElement {
     private Integer Yloc;
     private Integer Xsize;
     private Integer Ysize;
+    private Point location;
     private static appiumTestLog.logger logFile;
 
 
@@ -47,13 +45,27 @@ public class appElement {
         this.driver = appiumTestBase.getDriver();
         logFile = appiumTestBase.logFile;
     }
+    public appElement(String n, WebElement ele){
+        this.name = n;
+        this.element = ele;
+
+        this.driver = appiumTestBase.getDriver();
+        logFile = appiumTestBase.logFile;
+
+    }
 
     public WebElement getAppElement(){
         return element;
     }
 
     public void setAppElement(){
-        element = driver.findElement(by);
+        if(element == null){
+            element = driver.findElement(by);
+        }
+    }
+
+    public void GetallElements(){
+
     }
 
     public String GetElementName(){
@@ -63,6 +75,10 @@ public class appElement {
     public String GetAttribute(String attr){
         setAppElement();
         return element.getAttribute(attr);
+    }
+    public String GetLocation(){
+        setAppElement();
+        return element.getLocation().toString();
     }
 
     public boolean isDisplayed(){
@@ -77,7 +93,7 @@ public class appElement {
     }
 
     public void tap(){
-        logFile.AddLog("Tap on Element: "+ this.name + " with locator:\t"+ this.by.toString());
+        logFile.AddLog("Tap on Element: "+ this.name + " ");
         setAppElement();
         element.click();
     }
@@ -122,10 +138,10 @@ public class appElement {
             exists = false;
         }
         if(exists){
-            logFile.AddLog("Element: " + name + " with Locator: " + by.toString() + " is present.");
+            logFile.AddLog("Element: " + name + " is present.");
         }
         else{
-            logFile.AddLog("Element: " + name + " with Locator: " + by.toString() + " is MISSING!");
+            logFile.AddLog("Element: " + name + " is MISSING!");
         }
         return exists;
 
@@ -135,7 +151,7 @@ public class appElement {
         boolean present = false;
 
         while(!present){
-            logFile.AddLog("Trying to find element:" + name + " with locator: " + by.toString());
+            logFile.AddLog("Trying to find element:" + name);
             if(!driver.findElements(by).isEmpty()){
                 present = true;
             }
