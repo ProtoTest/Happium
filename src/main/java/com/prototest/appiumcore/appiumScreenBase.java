@@ -19,34 +19,44 @@ public class appiumScreenBase {
     protected appiumScreenHistory.ScreenHistory ScreenHS = new appiumScreenHistory.ScreenHistory();
     appElement SurveyHeader = new appElement("SurveyHeader", By.xpath("//window[1]/navigationBar[1]/text[1]")); //This should be present on both surveys
 
-    WebDriver driver = appiumTestBase.getDriver();
-    List<WebElement> WebElementList;
-    List<appElement> VisibleAppElements;
+    appiumElementRepo.ElementRepo WebElementList = appiumTestBase.elementRepo;
+
 
 
 
     public appiumScreenBase(){
-        WebElementList =  driver.findElements(By.tagName("UIAButton"));
-        WebElementList.addAll(driver.findElements(By.tagName("UIATextField")));
-        WebElementList.addAll(driver.findElements(By.tagName("UIASecureTextField")));
-        WebElementList.addAll(driver.findElements(By.tagName("UIAStaticText")));
+        JavascriptExecutor js = (JavascriptExecutor) appiumTestBase.getDriver();
+        String pagesource = (String) js.executeScript("wd_frame.getPageSource()");
+        String[] pagestrings;
+        pagestrings = pagesource.split("type");
+
     }
 
-    public WebElement FindElement(int x, int y){
+    public appElement FindElement(String type, int x, int y){
         //This takes a long time to find objects like this
         Point location = new Point(x, y);
-        int matchingIndex = 0;
-        for(int i = 0; i < WebElementList.size(); i++){
-            if(WebElementList.get(i).isDisplayed()){
-                if(WebElementList.get(i).getLocation().equals(location)){
-                    System.out.println("gonna try tapping " + WebElementList.get(i).getTagName() + " " + WebElementList.get(i).getLocation().toString());
-                    matchingIndex = i;
-                    i = WebElementList.size(); //get out of the loop when you find a match
-                }
-            }
+        appElement item = null;
+        if(type == "UIAButton"){
+            //item = WebElementList.getButton(location);
+            item = appiumTestBase.elementRepo.getButton(location);
         }
-        return WebElementList.get(matchingIndex);
+        if(type == "UIASecureTextField"){
+            item = WebElementList.getSecure(location);
+        }
+        if(type == "UIAStaticText"){
+            item = WebElementList.getStatic(location);
+        }
+        if(type == "UIATextField"){
+            item = WebElementList.getText(location);
+        }
 
+        return item;
+
+        //This didn't work for appium - :(
+        /*
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement foundthing = (WebElement) js.executeScript("document.elementFromPoint("+ String.valueOf(x)+ "," + String.valueOf(y) + ")");
+        return foundthing;   */
     }
     public void addScreenHistory(Object obj){
         ScreenHS.addScreen(obj);

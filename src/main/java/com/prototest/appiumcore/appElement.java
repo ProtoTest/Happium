@@ -35,12 +35,12 @@ public class appElement {
         //this.element = driver.findElement(b);
     }
 
-    public appElement(String n, int x_loc, int y_loc, int x_size, int y_size){
+    public appElement(String n, WebElement ele, Point loc){
         this.name = n;
-        this.Xloc = x_loc;
-        this.Yloc = y_loc;
-        this.Xsize = x_size;
-        this.Ysize = y_size;
+        this.Xloc = loc.x;
+        this.Yloc = loc.y;
+        this.location = loc;
+        this.element = ele;
 
         this.driver = appiumTestBase.getDriver();
         logFile = appiumTestBase.logFile;
@@ -76,10 +76,11 @@ public class appElement {
         setAppElement();
         return element.getAttribute(attr);
     }
-    public String GetLocation(){
+    public Point GetLocation(){
         setAppElement();
-        return element.getLocation().toString();
+        return element.getLocation();
     }
+
 
     public boolean isDisplayed(){
         setAppElement();

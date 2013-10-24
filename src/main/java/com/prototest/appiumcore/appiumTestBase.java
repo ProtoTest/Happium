@@ -24,15 +24,18 @@ public class appiumTestBase {
     private static  WebDriver driver;
     private appElement window;
     public static appiumTestLog.logger logFile;
+    public static appiumElementRepo.ElementRepo elementRepo;
 
     public appiumTestBase(){
         logFile = new appiumTestLog.logger();
+
     }
     @Before
     public void setUp() throws Exception {
         System.out.println("Running Setup");
         logFile.AddLog("Initiating test suite: " + this.getClass().getSimpleName().toString());
         launchBrowser();
+        //elementRepo = new appiumElementRepo.ElementRepo();
     }
 
     private void launchBrowser() throws Exception{

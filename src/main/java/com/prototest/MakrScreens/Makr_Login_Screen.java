@@ -19,7 +19,7 @@ import java.util.List;
 public class Makr_Login_Screen extends appiumScreenBase {
     appElement usernameField = new appElement("UserNameField", By.tagName("UIATextField"));
     appElement PasswordField = new appElement("PasswordField", By.tagName("UIASecureTextField"));
-    appElement LoginButton = new appElement("LoginButton", FindElement(452, 500));
+    appElement LoginButton = FindElement("UIAButton", 452, 500);
     appElement NewUserButton = new appElement("RegisterButton", By.xpath("//window[1]/button[27]"));
     appElement FaceBookLogin = new appElement("FaceBook_Login", By.name("lgnFacebookLoginButton normal"));
     appElement ForgotPassword = new appElement("ForgotPassword", By.name("FORGOT PASSWORD"));

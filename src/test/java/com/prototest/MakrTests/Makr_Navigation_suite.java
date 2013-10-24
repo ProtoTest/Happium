@@ -61,21 +61,21 @@ public class Makr_Navigation_suite extends appiumTestBase {
     }
 
     @Test
-    public void Nav_006_UserMenu_UserLoggedIn(){
+    public void Nav_007_UserMenu_UserLoggedIn(){
         logFile.AddLog("Start Test: Navigation User Menu - User logged in");
         //Pre-Conditions: User needs to be logged in
         Makr_Home_Screen.StartMaker().tapUserMenu().tapAccountButton().tapAppSettings().tapHelp().tapTerms();
     }
 
     @Test
-    public void Nav_007_Logout() {
+    public void Nav_008_Logout() {
         logFile.AddLog("Start Test: Navigation Logout");
         //Preconditions: User must be logged in for this test to run
        Makr_Home_Screen.StartMaker().tapUserMenu().tapAccountButton().tapLogOut().tapYes();
     }
 
     @Test
-    public void Nav_008_UserMenu_UserLoggedOut(){
+    public void Nav_009_UserMenu_UserLoggedOut(){
         logFile.AddLog("Start Test: Navigation User Menu - User logged out");
         Makr_Home_Screen.StartMaker().tapUserMenu().tapAppSettings().tapHelp().tapTerms();
     }
