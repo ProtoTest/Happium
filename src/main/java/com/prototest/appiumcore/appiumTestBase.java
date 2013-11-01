@@ -42,7 +42,7 @@ public class appiumTestBase {
         //File app = new File("/Users/sethurban/Library/Developer/Xcode/DerivedData/Makr-cvsoqtvihpokiseidyefsjxwedqw/Build/Products/Debug-iphonesimulator/Makr.app");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
-        capabilities.setCapability(CapabilityType.VERSION, "6.1");
+        capabilities.setCapability(CapabilityType.VERSION, "7.0");
         capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
 
         //capabilities.setCapability("app", app.getAbsolutePath());

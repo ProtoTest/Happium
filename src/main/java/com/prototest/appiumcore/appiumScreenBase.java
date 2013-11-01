@@ -28,7 +28,8 @@ public class appiumScreenBase {
         JavascriptExecutor js = (JavascriptExecutor) appiumTestBase.getDriver();
         String pagesource = (String) js.executeScript("wd_frame.getPageSource()");
         String[] pagestrings;
-        pagestrings = pagesource.split("type");
+        pagestrings = pagesource.split("\"children\":[");
+
 
     }
 
