@@ -17,12 +17,14 @@ public class Experimental {
     private List<Point> Locations;
     private List<String> xpaths;
 
-    private int Window = 0;
-    private int Button = 0;
-    private int StaticText = 0;
-    private int ScrollView = 0;
-    private int Textfield = 0;
-    private int SecureTextField = 0;
+    private static int intWindow = 1;
+    private static int intButton = 1;
+    private static int intStaticText = 1;
+    private static int intScrollView = 1;
+    private static int intTextfield = 1;
+    private static int intSecureTextField = 1;
+    private static int intImage = 1;
+    private static int intStatusBar = 1;
 
     public static void main(String[] args){
         split();
@@ -38,7 +40,7 @@ public class Experimental {
                 secondsplit.add(things);
             }
         }
-        //let's simplify some things here
+        //let's simplify some things here -- add all the split strings to a new list
         List<String> elements = new ArrayList<String>();
         for(int i = 0; i < secondsplit.size(); i++){
             for(int x = 0; x < secondsplit.get(i).length; x++){
@@ -59,33 +61,31 @@ public class Experimental {
             String xpath = "";
             if((elements.get(i).length() - 1) == elements.get(i).lastIndexOf(':')){
                 //this is a parent -- set the parent name
-                int typeloc = elements.get(i).indexOf(type) + type.length();
-                int typeend = elements.get(i).indexOf('\"', typeloc);
-                ParentName +=  elements.get(i).substring(typeloc, typeend);
+                ParentName +=  TypeSelector(elements.get(i));
                 ParentName += "//";
                 xpath = ParentName;
+
             }
             else{
-                int typeloc = elements.get(i).indexOf(type) + type.length();
-                int typeend = elements.get(i).indexOf('\"', typeloc);
-                xpath = ParentName + elements.get(i).substring(typeloc, typeend);
-
+                String theType = TypeSelector(elements.get(i));
+                xpath = ParentName + theType;
+                if(elements.get(i).indexOf(ParentTerminator) == -1){//check to make sure we're not going to be doing something with a parent terminator first
+                    //IncrementID(theType);
+                }
             }
 
             if(elements.get(i).indexOf(ParentTerminator) != -1){ //this string contains at least one parent terminator
                 //we need to figure out if there is more than one parent terminator -- so we'll remove the substring of the initial parent terminator and check for it again
-                int typeloc = elements.get(i).indexOf(type) + type.length();
-                int typeend = elements.get(i).indexOf('\"', typeloc);
-                xpath = ParentName + elements.get(i).substring(typeloc, typeend);
-
+                xpath = ParentName + TypeSelector(elements.get(i));
 
                 while (elements.get(i).indexOf(ParentTerminator) != -1){
                     String thing = elements.get(i).replaceFirst(ParentTerminator, "");
-                    elements.set(i, thing);
+                    elements.set(i, thing); //This is the weird Java way to change an element in the Array list
                     //need to update the parent string now to close the previous parent
                     String[] Parents = ParentName.split("//");
                     //need to check this.
-                    for(int x = 0; x < Parents.length; x++){
+                    ParentName = "";
+                    for(int x = 0; x < Parents.length - 1; x++){
                         //we don't want the last element in the array since we found a parent terminator
                         ParentName += Parents[x] + "//";
                     }
@@ -98,8 +98,66 @@ public class Experimental {
 
     }
 
-    private String TypeSelector(String raw){
-        return "derp";
+    private static String TypeSelector(String raw){
+        String type = "UIA";
+        int typeloc = raw.indexOf(type) + type.length();
+        int typeend = raw.indexOf('\"', typeloc);
+        String selectedType = raw.substring(typeloc, typeend);
+        String TypeandID = selectedType + PrintID(selectedType);
+        return TypeandID;
+    }
+
+    private static String PrintID(String type){
+        String thenumber = "";
+        if(type.equals("Window")){
+            thenumber = "[" + String.valueOf(intWindow) + "]";
+            intWindow += 1;
+        }
+        if(type.equals("Button")){
+            thenumber = "[" + String.valueOf(intButton) + "]";
+            intButton += 1;
+        }
+        if(type.equals("StaticText")){
+            thenumber = "[" + String.valueOf(intStaticText) + "]";
+            intStaticText += 1;
+        }
+        if(type.equals("ScrollView")){
+            thenumber = "[" + String.valueOf(intScrollView) + "]";
+            intScrollView += 1;
+        }
+        if(type.equals("Image")){
+            thenumber = "[" + String.valueOf(intImage) + "]";
+            intImage += 1;
+        }
+        if(type.equals("StatusBar")){
+            thenumber = "[" + String.valueOf(intStatusBar) + "]";
+            intStatusBar += 1;
+        }
+        return thenumber;
+    }
+    private static void IncrementID(String UIAType){
+        int IDStart = UIAType.indexOf("[");
+        if(IDStart != -1){
+            String type = UIAType.substring(0, IDStart);
+            if(type.equals("Window")){
+                intWindow += 1;
+            }
+            if(type.equals("Button")){
+                intButton += 1;
+            }
+            if(type.equals("StaticText")){
+                intStaticText += 1;
+            }
+            if(type.equals("ScrollView")){
+                intScrollView += 1;
+            }
+            if(type.equals("Image")){
+                intImage += 1;
+            }
+            if(type.equals("StatusBar")){
+                intStatusBar += 1;
+            }
+        }
     }
 
 
