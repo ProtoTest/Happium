@@ -15,8 +15,8 @@ import java.util.Stack;
  */
 public class Experimental {
     static String source = "{\"name\":\"Makr α\",\"type\":\"UIAApplication\",\"label\":\"Makr α\",\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":0},\"size\":{\"width\":1024,\"height\":768}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[{\"name\":null,\"type\":\"UIAWindow\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":0},\"size\":{\"width\":1024,\"height\":768}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":0},\"size\":{\"width\":55,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAStaticText\",\"label\":\"\",\"value\":\"\",\"rect\":{\"origin\":{\"x\":67,\"y\":5},\"size\":{\"width\":250,\"height\":34}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":1,\"rect\":{\"origin\":{\"x\":380,\"y\":0},\"size\":{\"width\":44,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":454,\"y\":0},\"size\":{\"width\":44,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":528,\"y\":0},\"size\":{\"width\":44,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":602,\"y\":0},\"size\":{\"width\":44,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":925,\"y\":0},\"size\":{\"width\":32,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":925,\"y\":0},\"size\":{\"width\":32,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]}]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":968,\"y\":0},\"size\":{\"width\":44,\"height\":44}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"BUSINESS\",\"type\":\"UIAButton\",\"label\":\"BUSINESS\",\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":44},\"size\":{\"width\":170,\"height\":49}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"PARTIES\",\"type\":\"UIAButton\",\"label\":\"PARTIES\",\"value\":null,\"rect\":{\"origin\":{\"x\":171,\"y\":44},\"size\":{\"width\":170,\"height\":49}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"WEDDING\",\"type\":\"UIAButton\",\"label\":\"WEDDING\",\"value\":null,\"rect\":{\"origin\":{\"x\":342,\"y\":44},\"size\":{\"width\":170,\"height\":49}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"BABY\",\"type\":\"UIAButton\",\"label\":\"BABY\",\"value\":null,\"rect\":{\"origin\":{\"x\":513,\"y\":44},\"size\":{\"width\":170,\"height\":49}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"HOLIDAY\",\"type\":\"UIAButton\",\"label\":\"HOLIDAY\",\"value\":null,\"rect\":{\"origin\":{\"x\":684,\"y\":44},\"size\":{\"width\":170,\"height\":49}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"HOME\",\"type\":\"UIAButton\",\"label\":\"HOME\",\"value\":null,\"rect\":{\"origin\":{\"x\":855,\"y\":44},\"size\":{\"width\":169,\"height\":49}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAScrollView\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":96},\"size\":{\"width\":1024,\"height\":672}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[{\"name\":null,\"type\":\"UIAScrollView\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":96},\"size\":{\"width\":1024,\"height\":460}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":-1024,\"y\":96},\"size\":{\"width\":1024,\"height\":460}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":96},\"size\":{\"width\":1024,\"height\":460}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":1024,\"y\":96},\"size\":{\"width\":1024,\"height\":460}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":2048,\"y\":96},\"size\":{\"width\":1024,\"height\":460}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":3072,\"y\":96},\"size\":{\"width\":1024,\"height\":460}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]}]},{\"name\":null,\"type\":\"UIAPageIndicator\",\"label\":null,\"value\":\"page 1 of 3\",\"rect\":{\"origin\":{\"x\":100,\"y\":526},\"size\":{\"width\":824,\"height\":35}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":\"FRESH IDEAS\",\"type\":\"UIAStaticText\",\"label\":\"FRESH IDEAS\",\"value\":\"FRESH IDEAS\",\"rect\":{\"origin\":{\"x\":465,\"y\":581},\"size\":{\"width\":94,\"height\":18}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":22,\"y\":619},\"size\":{\"width\":310,\"height\":242}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":357,\"y\":619},\"size\":{\"width\":310,\"height\":242}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":692,\"y\":619},\"size\":{\"width\":310,\"height\":242}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":true,\"children\":[]},{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":1017,\"y\":763},\"size\":{\"width\":7,\"height\":5}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAImage\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":1019,\"y\":761},\"size\":{\"width\":5,\"height\":7}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":\"MOST POPULAR\",\"type\":\"UIAStaticText\",\"label\":\"MOST POPULAR\",\"value\":\"MOST POPULAR\",\"rect\":{\"origin\":{\"x\":457,\"y\":886},\"size\":{\"width\":110,\"height\":18}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":22,\"y\":924},\"size\":{\"width\":310,\"height\":242}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":357,\"y\":924},\"size\":{\"width\":310,\"height\":242}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":null,\"type\":\"UIAButton\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":692,\"y\":924},\"size\":{\"width\":310,\"height\":242}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]}]}]},{\"name\":null,\"type\":\"UIAWindow\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":-256},\"size\":{\"width\":768,\"height\":1024}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[{\"name\":null,\"type\":\"UIAStatusBar\",\"label\":null,\"value\":null,\"rect\":{\"origin\":{\"x\":0,\"y\":0},\"size\":{\"width\":1024,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[{\"name\":\"iPad\",\"type\":\"UIAElement\",\"label\":\"iPad\",\"value\":null,\"rect\":{\"origin\":{\"x\":6,\"y\":0},\"size\":{\"width\":26,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":\"3 of 3 Wi-Fi bars\",\"type\":\"UIAElement\",\"label\":\"3 of 3 Wi-Fi bars\",\"value\":\"ProtoTest\",\"rect\":{\"origin\":{\"x\":37,\"y\":0},\"size\":{\"width\":13,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":\"1:23 PM\",\"type\":\"UIAElement\",\"label\":\"1:23 PM\",\"value\":null,\"rect\":{\"origin\":{\"x\":490,\"y\":0},\"size\":{\"width\":45,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":\"Bluetooth on\",\"type\":\"UIAElement\",\"label\":\"Bluetooth on\",\"value\":null,\"rect\":{\"origin\":{\"x\":898,\"y\":0},\"size\":{\"width\":8,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":\"Not charging\",\"type\":\"UIAElement\",\"label\":\"Not charging\",\"value\":null,\"rect\":{\"origin\":{\"x\":912,\"y\":0},\"size\":{\"width\":76,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]},{\"name\":\"69% battery power, Charging\",\"type\":\"UIAElement\",\"label\":\"69% battery power, Charging\",\"value\":null,\"rect\":{\"origin\":{\"x\":994,\"y\":0},\"size\":{\"width\":25,\"height\":20}},\"dom\":null,\"enabled\":true,\"valid\":true,\"visible\":false,\"children\":[]}]}]}]}";
-    private List<Point> Locations;
-    private List<String> xpaths;
+    private static List<Point> Locations;
+    private static List<String> xpaths;
     private static List<String> elements;
     private static String ParentTerminator = "}]";
 
@@ -40,7 +40,30 @@ public class Experimental {
     public static void main(String[] args){
         split();
         CalculateXpaths();
+        CalculateLocations();
         System.out.println("derp");
+    }
+
+    private static void CalculateLocations() {
+        //This function will parse the element strings and stip out the location strings, parse them into Points and add them to the locations array
+        //the locations and xpaths array are treated as parellel arrays
+        Locations = new ArrayList<Point>();
+        String XFinder = "\"x\":";
+        String YFinder = "\"y\":";
+
+        String Xloc = "";
+        String Yloc = "";
+        Point Location;
+        for(int i = 0; i < elements.size(); i++){
+            int XlocStart = elements.get(i).indexOf(XFinder);
+            int DividLoc = elements.get(i).indexOf(',', XlocStart);
+            int YlocStart = elements.get(i).indexOf(YFinder);
+            int Yend = elements.get(i).indexOf('}', YlocStart);
+            Xloc = elements.get(i).substring(XlocStart + XFinder.length(), DividLoc);
+            Yloc = elements.get(i).substring(YlocStart + YFinder.length(), Yend);
+            Location = new Point(Integer.valueOf(Xloc), Integer.valueOf(Yloc));
+            Locations.add(Location);
+        }
     }
 
     private static void split(){
@@ -65,7 +88,7 @@ public class Experimental {
     private static void CalculateXpaths(){
         //so now we should just be able to iterate through the array to build xpath locators
         //The first element in the array is assumed to be the parent of everything below
-        List<String> xpaths = new ArrayList<String>();
+        xpaths = new ArrayList<String>();
 
         String ParentName = "//";
         //now we need some way to determine how many of each thing is on the screen
@@ -105,12 +128,11 @@ public class Experimental {
                     ResetValues();
                 }
             }
-            xpaths.add(xpath);
-
-
+            //we want to strip off the //Application Part and any trailing //
+            String app = "//Application";
+            String stripped = xpath.substring(app.length(), xpath.length());
+            xpaths.add(stripped);
         }
-        System.out.println("derp");
-
     }
 
     private static String TypeSelector(String raw){
@@ -140,6 +162,14 @@ public class Experimental {
         if(type.equals("ScrollView")){
             thenumber = "[" + String.valueOf(intScrollView) + "]";
             intScrollView += 1;
+        }
+        if(type.equals("TextField")){
+            thenumber = "[" + String.valueOf(intTextfield) + "]";
+            intTextfield += 1;
+        }
+        if(type.equals("SecureTextField")){
+            thenumber = "[" + String.valueOf(intSecureTextField) + "]";
+            intSecureTextField += 1;
         }
         if(type.equals("Image")){
             thenumber = "[" + String.valueOf(intImage) + "]";
@@ -183,9 +213,7 @@ public class Experimental {
         intSecureTextField = (Integer) SecureTextFieldStack.pop();
     }
 
-    private static void FindLocations(){
-        //TODO parse out the locations for each xpath
-    }
+
 
 
 
