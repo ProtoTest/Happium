@@ -6,7 +6,7 @@ package com.prototest.appiumcore;
  * Date: 9/9/13
  * Time: 1:02 PM
  * TestBase Class for appium Tests
- * 101113: SU - Attempted to add test logging
+ * 101113: SU - Added test logging
  */
 
 import org.junit.*;

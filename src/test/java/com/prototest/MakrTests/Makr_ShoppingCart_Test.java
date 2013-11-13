@@ -16,7 +16,25 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Makr_ShoppingCart_Test extends appiumTestBase  {
     //Global Pre-conditions: User must be logged into the application as an email user
+    private String FirstName = "";
+    private String LastName = "";
 
+    private String ValidCCName = "";
+    private String validCC = "";
+    private String validExpirey = "";
+    private String validCCV = "";
+
+    private String invalidCCName = "";
+    private String invalidCC = "";
+    private String invalidExpirey = "";
+    private String invalidCCV = "";
+
+    private String Address1 = "";
+    private String Address2 = "";
+    private String City = "";
+    private String State = "";
+    private String Zip = "";
+    private String Phone = "";
 
     private String Username = "surban@prototest.com";
     private String Password = "happiest";
@@ -32,8 +50,8 @@ public class Makr_ShoppingCart_Test extends appiumTestBase  {
     public void Cart_002_ShippingInformation(){
         //Pre-conditions: User must have previously non-ordered project in slot 1
         logFile.AddLog("Starting Test: Verify Shipping Information");
-        Makr_Home_Screen.StartMaker().ClickProjects().SelectProject(1).OrderPrintsandProof().addZipCode("80123").tapCheckout(Password).EnterNewAddress("Seth",
-                "Urban", "ProtoTest", "1999 Broadway", "suite 1410", "Denver","CO", "80202", "3039168683", "TestAddress").TapSaveBilling().TapContinue();
+        Makr_Home_Screen.StartMaker().ClickProjects().SelectProject(1).OrderPrintsandProof().addZipCode(Zip).tapCheckout(Password).EnterNewAddress(FirstName,
+                LastName, "ProtoTest", Address1, Address2, City, State, Zip, Phone, "TestAddress").TapSaveBilling().TapContinue();
     }
 
     @Test
@@ -55,8 +73,8 @@ public class Makr_ShoppingCart_Test extends appiumTestBase  {
     public void Cart_005_PaymentMethodInvalidCC(){
         //Pre-Conditions: The previous Test needs to have passed, or at least have one item in the shopping cart at the start of the test
         logFile.AddLog("Starting Test: Payment Method invalid CreditCart");
-        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).EnterNewAddress("ProtoTest", "TestUser", "ProtoTest", "1999 Broadway", "suite 1410", "Denver", "CO", "80001", "3039168683", "PT-TST-01")
-                .TapContinue().ChangeShipping(3).ClickContinuetoPay().EnterCCInfo("0716", "4470452880033455", "999").EnterBillingInfo("1999 Broadway", "suite 1410", "Denver", "CO", "80202").KnownInvalidCC();
+        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).EnterNewAddress("ProtoTest", "TestUser", "ProtoTest", Address1, Address2, City, State, Zip, Phone, "PT-TST-01")
+                .TapContinue().ChangeShipping(3).ClickContinuetoPay().EnterCCInfo(invalidExpirey, invalidCC, invalidCCV).EnterBillingInfo(Address1, Address2, City, State, Zip).KnownInvalidCC();
     }
 
     @Test
@@ -64,16 +82,16 @@ public class Makr_ShoppingCart_Test extends appiumTestBase  {
         //Pre-Conditions: The previous test needs to have passed and at least have one item in the shopping cart
         //TODO in order to order with an actual CREDIT CARD we need to keep track of order confirmation numbers
         logFile.AddLog("Starting Test: Payment Method with VALID CreditCard");
-        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).EnterNewAddress("ProtoTest", "TestUser", "ProtoTest", "1999 Broadway", "suite 1410", "Denver", "CO", "80001", "3039168683", "PT-TST-01")
-                .TapSaveBilling().TapContinue().ChangeShipping(4).ClickContinuetoPay().EnterCCInfo("0716", "CREDIT CARD INFO", "9987").EnterBillingInfo("1999 Broadway", "suite 1410", "Denver", "CO", "80001").KnownValidCC();
+        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).EnterNewAddress("ProtoTest", "TestUser", "ProtoTest", Address1, Address2, City, State, Zip, Phone, "PT-TST-01")
+                .TapSaveBilling().TapContinue().ChangeShipping(4).ClickContinuetoPay().EnterCCInfo(validExpirey, validCC, validCCV).EnterBillingInfo(Address1, Address2, City, State, Zip).KnownValidCC();
     }
 
     @Test
     public void Cart_007_EditShippingAddressOnConfirmation(){
         //Pre-Conditions: The previous test needs to have passed but an order NOT be submitted.  This test requires an item be present in the shopping cart
         logFile.AddLog("Starting Test: Edit Address on Confirmation Screen");
-        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinuetoPay().EnterCCInfo("0716", "4470452880033184", "996")
-                .EnterCCInfo("0716", "CREDIT CARD INFO", "9987").EnterBillingInfo("1999 Broadway", "suite 1410", "Denver", "CO", "80001").KnownValidCC().EditShipping().EnterNewAddress("ProtoTest", "TestUser", "ProtoTest", "2000 Broadway", "", "Denver", "CO", "80202", "3039168683", "Edited From Confirmation Screen")
+        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinuetoPay().EnterCCInfo(validExpirey, validCC, validCCV)
+                .EnterBillingInfo(Address1, Address2, City, State, Zip).KnownValidCC().EditShipping().EnterNewAddress("ProtoTest", "TestUser", "ProtoTest", "2000 Broadway", "", "Denver", "CO", "80202", "3039168683", "Edited From Confirmation Screen")
                 .TapContinue().ClickContinuetoPay().KnownValidCC();
     }
 
@@ -81,8 +99,8 @@ public class Makr_ShoppingCart_Test extends appiumTestBase  {
     public void Cart_008_EditPaymentInfoOnConfirmation(){
         //Pre-Conditions: There needs to be at least one item in the shopping cart
         logFile.AddLog("Starting Test: Edit Payment info on Confirmation screen");
-        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinuetoPay().EnterCCInfo("0716", "4470452880033184", "996")
-                .EnterCCInfo("0716", "CREDIT CARD INFO", "9987").EnterBillingInfo("1999 Broadway", "suite 1410", "Denver", "CO", "80001").KnownValidCC().EditBilling().EnterCCInfo("EXP", "CREDITCARD", "996")
+        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinuetoPay().EnterCCInfo(validExpirey, validCC, validCCV)
+                .EnterBillingInfo(Address1, Address2, City, State, Zip).KnownValidCC().EditBilling().EnterCCInfo(validExpirey, validCC, validCCV)
                 .KnownValidCC();
 
     }
@@ -91,8 +109,8 @@ public class Makr_ShoppingCart_Test extends appiumTestBase  {
     public void Cart_009_CheckoutCreditCard(){
         //Pre-Conditions: There needs to be at least one item in the shopping cart
         logFile.AddLog("Starting Test: Checkout Credit Card Confirmation");
-        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinuetoPay().EnterCCInfo("0715", "4388576054167617", "279")
-                .EnterBillingInfo("1999 Broadway", "suite 1410", "Denver", "CO", "80202").KnownValidCC().ClickSubmit();
+        Makr_Home_Screen.StartMaker().tapShoppingCart().tapCheckout(Password).SelectExistingAddress(1).TapContinue().ChangeShipping(2).ClickContinuetoPay().EnterCCInfo(validExpirey, validCC, validCCV)
+                .EnterBillingInfo(Address1, Address2, City, State, Zip).KnownValidCC().ClickSubmit();
     }
 
 

@@ -53,11 +53,7 @@ public class appiumScreenBase {
 
         return item;
 
-        //This didn't work for appium - :(
-        /*
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement foundthing = (WebElement) js.executeScript("document.elementFromPoint("+ String.valueOf(x)+ "," + String.valueOf(y) + ")");
-        return foundthing;   */
+
     }
     public void addScreenHistory(Object obj){
         ScreenHS.addScreen(obj);
@@ -69,7 +65,7 @@ public class appiumScreenBase {
     /*This function has the list of elements passed into it to verify they are present on any given screen */
     protected void VerifyContent(List<appElement> elements){
         //commented out to make tests run faster
-        /*if(elements.size() > 0){
+        if(elements.size() > 0){
             for(int i = 0; i < elements.size(); i++){
                 if(elements.get(i).isDisplayed()){
                     System.out.println(elements.get(i).GetElementName() + " is displayed");
@@ -79,7 +75,7 @@ public class appiumScreenBase {
                 }
 
             }
-        } */
+        }
     }
 
 

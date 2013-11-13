@@ -9,7 +9,8 @@ import java.util.List;
  * User: sethurban
  * Date: 10/7/13
  * Time: 4:48 PM
- * This will be used to write test logs
+ * This will be used to write test logs -- This isn't fully implimented, but will report back to the debug screen
+ * when running tests as to what element is being interacted with and how
  */
 public class appiumTestLog {
     public static class logger{

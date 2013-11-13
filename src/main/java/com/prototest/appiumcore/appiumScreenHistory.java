@@ -11,7 +11,8 @@ import java.util.Vector;
  * to assist with back button functionality
  */
 public class appiumScreenHistory {
-    //this thing isn't working right -- I'll figure it out later
+    //this thing isn't working right -- It would be nice to track screens that tests have run against
+    //Lowered Priority of this - TODO fix this
     public static class ScreenHistory{
 
         Vector<Object> PreviousScreens;
